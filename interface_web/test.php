@@ -23,5 +23,5 @@ abstract class PDORepository{
     }
 }
 
-
+$testpdo = new PDORepository;
 ?>
