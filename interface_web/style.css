@@ -1,0 +1,19 @@
+body, html{
+  height: 100%;
+}
+#map{
+  background-color: red;
+  color: green;
+  height: 200%;
+  width: 100%;
+  position: relative;
+  right: 100%;
+}
+
+#content{
+  background-color: green;
+}
+
+#menu{
+  background-color: yellow;
+}

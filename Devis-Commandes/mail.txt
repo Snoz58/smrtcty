@@ -1,0 +1,31 @@
+Bonjour,
+
+Serait-il possible d'établir un devis Pour les éléments suivants (également dans la capture d'écran ci-jointe) : 
+
+1x Ordinateur Monocarte Raspberry Pi 3 B+ [RB-Ras-20]
+2x Microcontrôleur Arduino Uno R3 USB [RB-Ard-34]
+2x Microcontrôleur Arduino Mega 2560 Rev3 [RB-Ard-33]
+3x Module Émetteur-Récepteur Sériel Sans Fil 433Mhz (1000m) [RB-See-328]
+2x Blindage Émetteur-Récepteur Longue Portée LoRa/GPS 868 Mhz (EU)  [RB-Drt-09]
+1x HAT PiCobber Sans Fil pour Raspberry Pi   HAT PiCobber Sans Fil pour Raspberry Pi [RB-Gek-04]
+2x Capteur d'Humidité et de Température – DHT22 [RB-Spa-521]
+2x Capteur Baromètre Grove (BMP280) [RB-See-546]
+1x Kit pH-mètre Analogique DFRobot Gravity [RB-Dfr-483]
+1x Module Sonar HC-SR04   Module Sonar HC-SR04 [RB-Ite-54]
+2x Capteur de Poussière Grove [RB-See-552]
+2x Chargeur LiPo USB et Alimentation de Secours LiPo Rider Pro SeeedStudio [RB-See-213]
+2x Platine RTC DS1302 Horloge en Temps Réel [RB-Wav-28]
+1x Carte SD 16GB avec NOOBS pour Raspberry Pi [RB-Ras-19]
+1x HAT Émetteur-Récepteur Longue Portée LoRa/GPS 868 Mhz (EU) [RB-Drt-01]
+
+Coordonnées : 
+
+Conseil départemental de la Nièvre
+14 Bis rue Jeanne d'Arc
+58000 NEVERS
+
+Merci d'avance,
+Cordialement,
+Corentin.
+
+
