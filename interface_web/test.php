@@ -1,6 +1,6 @@
 <?php
 
-abstract class PDORepository{
+class PDORepository{
 
     const USERNAME="root";
     const PASSWORD="";
@@ -21,7 +21,16 @@ abstract class PDORepository{
         $stmt->execute($args);
         return $stmt;
     }
+
+    public function test($query){
+      $connection = $this->getConnection();
+      $reponse = $connection->query($query);
+      return $reponse;
+    }
 }
 
+
 $testpdo = new PDORepository;
+print_r($testpdo->test("select * from Units"));
+
 ?>
