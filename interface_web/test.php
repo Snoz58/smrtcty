@@ -1,36 +1,27 @@
 <?php
 
-class PDORepository{
-
-    const USERNAME="root";
-    const PASSWORD="";
-    const HOST="localhost";
-    const DB="SmartVillage";
-
-    private function getConnection(){
-        $username = self::USERNAME;
-        $password = self::PASSWORD;
-        $host = self::HOST;
-        $db = self::DB;
-        $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
-        return $connection;
+// $connection = new PDO("mysql:dbname=SmartVillage;host=localhost", "root", "");
+// $connection->execute($args);
+$val = rand(5, 35);
+for ($i = 0; $i < 30; $i++){ 
+  $rand = rand(0, 10);
+  $plusoumoins = rand(0,1);
+  if ($plusoumoins){
+    if ($val + $rand<=40){
+      $val = $val + $rand;
     }
-    protected function queryList($sql, $args){
-        $connection = $this->getConnection();
-        $stmt = $connection->prepare($sql);
-        $stmt->execute($args);
-        return $stmt;
+    else {
+      $val = $val - $rand;
     }
-
-    public function test($query){
-      $connection = $this->getConnection();
-      $reponse = $connection->query($query);
-      return $reponse;
+  }
+  else {
+    if ($val - $rand>=0){
+      $val = $val - $rand;
     }
+    else {
+      $val = $val + $rand;
+    }
+  }
+  print("tes".$val."<br />");
 }
-
-
-$testpdo = new PDORepository;
-print_r($testpdo->test("select * from Units"));
-
 ?>
