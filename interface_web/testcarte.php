@@ -24,28 +24,11 @@
     var content = document.getElementById('popup-content');
     var closer = document.getElementById('popup-closer');
 
-
-    // var features = new ol.format.GeoJSON().readFeatures(geojsonObject, {
-    //     featureProjection: 'EPSG:3857',
-    //     url: 'carte2.geojson'
-    // });
-
-    var features = new ol.source.Vector({
-      url: 'carte.json',
-      format: new ol.format.GeoJSON()
+    // Transformation du GeoJson en Vector
+    var vectorSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: './carte.json'
     });
-  //
-  //   var vectorSource = new ol.layer.Vector({
-  //     title: 'added Layer',
-  //     source: features
-  // })
-
-  var vectorSource = new ol.source.Vector({
-    projection : 'EPSG:3857',
-    featureProjection: 'EPSG:3857',
-    features: features
-  });
-
 
     // icône des points d'intérêt
     var iconStyle = new ol.style.Style({
@@ -60,9 +43,10 @@
 
     // vectorLayer + icones = layer
     var vectorLayer = new ol.layer.Vector({
-      source: vectorSource,
-      style: iconStyle
+        source: vectorSource,
+        style: iconStyle
     });
+
 
     // Initialisation de la popup
     var overlay = new ol.Overlay({

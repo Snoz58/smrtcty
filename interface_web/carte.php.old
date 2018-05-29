@@ -24,11 +24,60 @@
     var content = document.getElementById('popup-content');
     var closer = document.getElementById('popup-closer');
 
-    // Transformation du GeoJson en Vector
-    var vectorSource = new ol.source.Vector({
-        format: new ol.format.GeoJSON(),
-        url: './carte.json'
-    });
+    var geojsonObject = {
+
+    "type": "FeatureCollection",
+    "features": [{
+      "type": "Feature",
+      "properties": {
+        "id": "id1",
+        "name": "Point 1",
+        "property_a": "propA1",
+        "property_d": "propD1",
+        "property_c": "propC1",
+        "property_d": "propAutreD1",
+      },
+      "geometry": {
+            	"type": "Point",
+            	"coordinates": ol.proj.transform([3.1507, 46.9889], 'EPSG:4326', 'EPSG:3857')
+          }
+    },{
+      "type": "Feature",
+      "properties": {
+        "id": "id2",
+        "name": "Point 2",
+        "property_a": "propA2",
+        "property_d": "propD2",
+        "property_c": "propC2",
+        "property_d": "propAutreD2"
+      },
+      "geometry": {
+            "type": "Point",
+            "coordinates": ol.proj.transform([3.1660, 46.9970], 'EPSG:4326', 'EPSG:3857')
+        }
+    }]
+
+    };
+
+      // Création d'un vectorLayer a patir du fichier GeoJSON
+      var vectorSource = new ol.source.Vector({
+        projection : 'EPSG:3857',
+        featureProjection: 'EPSG:3857',
+        features: (new ol.format.GeoJSON()).readFeatures(geojsonObject)
+      });
+
+    //   var features = new ol.source.Vector({
+    //     url: 'carte.json',
+    //     format: new ol.format.GeoJSON()
+    //   });
+    //
+    //
+    // var vectorSource = new ol.source.Vector({
+    //   projection : 'EPSG:3857',
+    //   featureProjection: 'EPSG:3857',
+    //   features: features
+    // });
+
 
     // icône des points d'intérêt
     var iconStyle = new ol.style.Style({
@@ -43,10 +92,9 @@
 
     // vectorLayer + icones = layer
     var vectorLayer = new ol.layer.Vector({
-        source: vectorSource,
-        style: iconStyle
+      source: vectorSource,
+      style: iconStyle
     });
-
 
     // Initialisation de la popup
     var overlay = new ol.Overlay({
@@ -75,7 +123,7 @@
         }),
         view: new ol.View({ // Initialisation de la carte
           center: ol.proj.transform([3.1534730919589, 46.99032446763], 'EPSG:4326', 'EPSG:3857'),
-          zoom: 14
+          zoom: 13
         })
       });
 
