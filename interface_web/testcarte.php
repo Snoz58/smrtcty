@@ -24,50 +24,27 @@
     var content = document.getElementById('popup-content');
     var closer = document.getElementById('popup-closer');
 
-    var geojsonObject = {
 
-    "type": "FeatureCollection",
-    "features": [{
-      "type": "Feature",
-      "properties": {
-        "id": "id1",
-        "name": "Point 1",
-        "property_a": "propA1",
-        "property_d": "propD1",
-        "property_c": "propC1",
-        "property_d": "propAutreD1",
-      },
-      "geometry": {
-            	"type": "Point",
-            	"coordinates": ol.proj.transform([3.1507, 46.9889], 'EPSG:4326', 'EPSG:3857')
-          }
-    },{
-      "type": "Feature",
-      "properties": {
-        "id": "id2",
-        "name": "Point 2",
-        "property_a": "propA2",
-        "property_d": "propD2",
-        "property_c": "propC2",
-        "property_d": "propAutreD2"
-      },
-      "geometry": {
-            "type": "Point",
-            "coordinates": [
-          	-2.7541303,
-          	47.6424637
-        ]
-        }
-    }]
+    // var features = new ol.format.GeoJSON().readFeatures(geojsonObject, {
+    //     featureProjection: 'EPSG:3857',
+    //     url: 'carte2.geojson'
+    // });
 
-    };
+    var features = new ol.source.Vector({
+      url: 'carte.json',
+      format: new ol.format.GeoJSON()
+    });
+  //
+  //   var vectorSource = new ol.layer.Vector({
+  //     title: 'added Layer',
+  //     source: features
+  // })
 
-      // Création d'un vectorLayer a patir du fichier GeoJSON
-      var vectorSource = new ol.source.Vector({
-        projection : 'EPSG:3857',
-        featureProjection: 'EPSG:3857',
-        features: (new ol.format.GeoJSON()).readFeatures(geojsonObject)
-      });
+  var vectorSource = new ol.source.Vector({
+    projection : 'EPSG:3857',
+    featureProjection: 'EPSG:3857',
+    features: features
+  });
 
 
     // icône des points d'intérêt
