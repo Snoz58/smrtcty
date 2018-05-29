@@ -1,3 +1,5 @@
+{
+
 "type": "FeatureCollection",
 "features": [{
   "type": "Feature",
@@ -7,10 +9,10 @@
     "property_a": "propA1",
     "property_d": "propD1",
     "property_c": "propC1",
-    "property_d": "propAutreD1",
+    "property_d": "propAutreD1"
   },
   "geometry": {
-          "type": "Point",
+          "type": "Point", 
           "coordinates": [3.1507, 46.9889]
       }
 },{
@@ -28,3 +30,5 @@
         "coordinates": [3.1660, 46.9970]
     }
 }]
+
+}
