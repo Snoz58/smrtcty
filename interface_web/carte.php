@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>GeoJSON</title>
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="OpenLayers/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+    <script src="OpenLayers/ol.js"></script>
     <link rel="stylesheet" href="carte.css">
 
 
@@ -19,15 +19,13 @@
     </div>
     <script>
 
-    var iconFeatures=[];
     var container = document.getElementById('popup');
     var content = document.getElementById('popup-content');
-    var closer = document.getElementById('popup-closer');
 
     // Transformation du GeoJson en Vector
     var vectorSource = new ol.source.Vector({
         format: new ol.format.GeoJSON(),
-        url: './carte.json'
+        url: './cartejson.php'
     });
 
     // icône des points d'intérêt

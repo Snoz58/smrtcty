@@ -1,58 +1,16 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-
-    {
-      "type": "Feature",
-      "properties": {
-        	"id": "1",
-        	"name": "MakerSpace56",
-        	"organisation": "",
-        	"structure": "fablabMIT",
-	"adresse": "VIPE",
-	"cp": "56000",
-        	"ville": "Vannes",
-        	"web": "http://makerspace56.org",
-        	"twitter": "@makerspace56",
-	"facebook": "",
-	"email": "contact@makerspace56.org",
-	"tel": "",
-	"rss": "http://makerspace56.org/feed/"
-      },
-      "geometry": {
-        	"type": "Point",
-        	"coordinates": [
-          	-2.7541303,
-          	47.6424637
-        ]
-      }
-    },
-
-    {
-      "type": "Feature",
-      "properties": {
-        	"id": "2",
-        	"name": "Tilt",
-        	"organisation": "",
-        	"structure": "tierslieu",
-	"adresse": "",
-	"cp": "56450",
-        	"ville": "Theix",
-        	"web": "",
-        	"twitter": "@tilt_theix",
-	"facebook": "",
-	"email": "",
-	"tel": "",
-	"rss": ""
-      },
-      "geometry": {
-        	"type": "Point",
-        	"coordinates": [
-          	-2.64920711517334,
-          	47.62876324543288
-        ]
-      }
+"type": "FeatureCollection",
+"features": [{
+  "type": "Feature",
+  "properties": {
+    "Id": "1",
+    "Name": "Jeanne d'Arc",
+    "Lien": "<a href='#'>Lien</a>"
+  },
+  "geometry": {
+        "type": "Point",
+        "coordinates": [46.989040, 3.153046]
     }
+}]
 
-  ]
 }
