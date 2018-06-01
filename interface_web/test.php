@@ -4,9 +4,6 @@
 // $connection->execute($args);
 
 
-
-
-
 print("INSERT INTO Data (`Date`, `Value`, `fk_IdNode`, `fk_IdUnits`) VALUES<br />");
 
 $val = rand(5, 35);
