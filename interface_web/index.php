@@ -1,13 +1,12 @@
 <?php
 
-include('controleur.php');
+require('controleur.php');
 
 try {
   if (isset($_GET['action'])) {
 
     if ($_GET['action'] == 'carte') {
-
-      require 'vueCarte.php';
+      carte();
     }
     else
       throw new Exception("Action non valide");

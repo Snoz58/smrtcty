@@ -10,6 +10,8 @@ function accueil() {
   require 'vueAccueil.php';
 }
 
+
+
 // Affiche les détails sur un billet
 function billet($idBillet) {
   $billet = getBillet($idBillet);
