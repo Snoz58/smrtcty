@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 
-class database{
+class database {
 
     const USERNAME="root";
     const PASSWORD="";
@@ -36,10 +36,4 @@ class database{
 
 }
 
-
-// $testpdo = new database;
-// $truc = $testpdo->getLast("select * from Units");
-// print("<pre>");
-// print_r($truc);
-// print("</pre>");
 ?>

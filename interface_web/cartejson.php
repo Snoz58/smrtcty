@@ -1,16 +1,18 @@
 <?php
-include "database.php";
+require("modele.php");
 
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 
-$testpdo = new database;
-$truc = $testpdo->getArray("select * from Node");
+// $pdo = new database;
+// $truc = $pdo->getArray("select * from Node");
+
+$node = getNodeInfos();
 
 $str = '{
   "type": "FeatureCollection",
   "features": [
 ';
-foreach ($truc as $value) {
+foreach ($node as $value) {
 
   $str .= '  {
     "type": "Feature",

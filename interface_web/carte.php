@@ -3,19 +3,19 @@
   <head>
 
     <!-- OpenLayers CSS -->
-    <link rel="stylesheet" href="css/ol.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="contenu/css/ol.css" type="text/css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="contenu/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="contenu/css/style.css">
 
     <!-- CSS de la Carte -->
-    <link rel="stylesheet" href="css/carte.css">
+    <link rel="stylesheet" type="text/css" href="contenu/css/carte.css">
 
     <!-- Javascript pour OpenLayers -->
-    <script src="js/ol.js"></script>
+    <script src="contenu/js/ol.js"></script>
 
     <title>Carte</title>
 
@@ -53,12 +53,12 @@
     </div>
 
     <!-- Carte à afficher sur la page -->
-    <script src="js/carte.js"></script>
+    <script src="contenu/js/carte.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="contenu/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="contenu/js/popper.min.js"></script>
+    <script src="contenu/js/bootstrap.min.js"></script>
   </body>
 </html>
