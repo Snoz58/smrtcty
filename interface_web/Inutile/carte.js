@@ -40,6 +40,7 @@ var overlay = new ol.Overlay({
     layers: [
       new ol.layer.Tile({
         source: new ol.source.OSM()
+        // source: new OpenLayers.Layer.Stamen("toner");
       }),
       vectorLayer,
     ],

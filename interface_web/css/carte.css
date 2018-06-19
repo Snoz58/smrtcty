@@ -1,0 +1,91 @@
+html, body, .map{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 55px;
+  left: -50px;
+  min-width: 200px;
+}
+
+/* Flèche en bas */
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+
+.ol-zoom {
+  top: 4em;
+  background-color: transparent;
+}
+
+.ol-zoom:hover {
+  background-color: transparent;
+}
+
+.ol-zoom .ol-zoom-in, .ol-zoom .ol-zoom-out{
+  background-color: #343a40;
+  color: #fff;
+  height: 35px;
+  width: 35px;
+}
+
+.ol-zoom .ol-zoom-in:hover, .ol-zoom .ol-zoom-out:hover{
+  background-color: #343a40;
+  cursor: pointer;
+}
+
+.ol-zoom .ol-zoom-in:active, .ol-zoom .ol-zoom-out:active,
+.ol-zoom .ol-zoom-in:focus, .ol-zoom .ol-zoom-out:focus{
+  background-color: #343a40;
+  border: none;
+}
+
+.ol-attribution {
+  background-color: rgba(52,58,64,.7) !important;
+}
+.ol-attribution ul{
+  text-shadow: none;
+  color: #fff;
+}
+.ol-attribution a{
+  color: #fff;
+}
+/* Croix pour fermer */
+/*
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+}
+*/
