@@ -1,5 +1,4 @@
 <?php
-
 require('controleur.php');
 
 try {
@@ -7,6 +6,9 @@ try {
 
     if ($_GET['action'] == 'carte') {
       carte();
+    }
+    else if ($_GET['action'] == 'data') {
+      data();
     }
     else
       throw new Exception("Action non valide");

@@ -7,10 +7,13 @@ function carte() {
 }
 
 function accueil() {
-  require 'vueAccueil.php';
+  // require 'vueAccueil.php';
+  require 'vueCarte.php';
 }
 
-
+function data() {
+  require 'vueData.php';
+}
 
 // Affiche les détails sur un billet
 function billet($idBillet) {

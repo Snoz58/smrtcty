@@ -20,4 +20,25 @@ ini_set('display_errors', 1);
     $infos = $bdd->query("select * from Node");
     return $infos;
   }
+
+  function getSensorValues($node, $sensor, $debut="2000-01-01", $fin="now()"){
+    $bdd = getConnection();
+
+    $debut = "'".$debut." 00:00:00' ";
+
+    if ($fin != "now()"){
+      $fin = "'".$fin." 00:00:00' ";
+    }
+
+    $values = $bdd->query("SELECT Date, Value
+                           FROM Data
+                           INNER JOIN Sensor ON fk_IdSensor = Sensor.Id
+                           WHERE Sensor.fk_IdNode = ".$node." AND
+                                 fk_IdSensor = ".$sensor." AND
+                                 Date > ".$debut." AND
+                                 Date < ".$fin);
+
+    return $values;
+
+  }
 ?>

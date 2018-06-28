@@ -1,7 +1,7 @@
 <?php
 require("modele.php");
 
-// header('Content-Type: application/json');
+header('Content-Type: application/json');
 
 // $pdo = new database;
 // $truc = $pdo->getArray("select * from Node");

@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <style> /* set the CSS */
 
-body { font: 12px Arial;}
+body { font: 12px Arial; background-color: #FEFEFE;}
 
 path {
     stroke: steelblue;
@@ -16,6 +16,11 @@ path {
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
 }
 
 </style>
@@ -33,6 +38,7 @@ var margin = {top: 30, right: 20, bottom: 30, left: 50},
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
+var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
@@ -40,7 +46,7 @@ var y = d3.scale.linear().range([height, 0]);
 
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(5);
+    .orient("bottom").ticks(3);
 
 var yAxis = d3.svg.axis().scale(y)
     .orient("left").ticks(5);
@@ -55,6 +61,8 @@ var svg = d3.select("body")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
+        .attr("id", "idsvg")
+
     .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
@@ -65,6 +73,8 @@ d3.csv("data.csv", function(error, data) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
+
+    console.log(data);
 
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.date; }));
@@ -86,7 +96,101 @@ d3.csv("data.csv", function(error, data) {
         .attr("class", "y axis")
         .call(yAxis);
 
-});
+    // Add the scatterplot
+    svg.selectAll("dot")
+        .data(data)
+        .enter().append("circle")
+        .attr("r", 3.5)
+        .attr("cx", function(d) { return x(d.date); })
+        .attr("cy", function(d) { return y(d.close); });
+
+
+          var focus = svg.append("g")
+              .attr("class", "focus")
+              .style("display", "none");
+
+          // svg.append("circle")
+          //     .attr("r", 4.5)
+          //     .attr("id", "circle ")
+          //     .attr("transform", "translate(0," + height + ")");
+
+          focus.append("text")
+              .attr("x", 9)
+              .attr("dy", ".35em");
+
+           focus.append("rect")
+               .attr("class", "overlay")
+               .attr("width", width)
+               .attr("height", height)
+              // .on("mouseover", function() { focus.style("display", null); })
+              // .on("mouseout", function() { focus.style("display", "none"); })
+               .on("mousemove", mousemove);
+
+          function mousemove() {
+            var x0 = x.invert(d3.mouse(this)[0]);
+            var  i = bisectDate(data, x0, 1);
+            var  d0 = data[i - 1];
+            var  d1 = data[i];
+            var  d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
+            focus.select("text").text(formatCurrency(d.close));
+          }
+
+
+
+          //console.log(margin.left);
+
+          var focus = svg.append("g")
+                .attr("class", "focus")
+                .style("display", "none");
+
+            focus.append("circle")
+                .attr("r", 4.5);
+
+            focus.append("text")
+                .attr("x", 9)
+                .attr("dy", ".35em");
+
+            svg.append("rect")
+                .attr("class", "overlay")
+                .attr("width", width)
+                .attr("height", height)
+                .on("mouseover", function() { focus.style("display", null); })
+                .on("mouseout", function() { focus.style("display", "none"); })
+                .on("mousemove", mousemove);
+
+            function mousemove() {
+              var x0 = x.invert(d3.mouse(this)[0]),
+                  i = bisectDate(data, x0, 1),
+                  d0 = data[i - 1],
+                  d1 = data[i],
+                  d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+              focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
+              focus.select("text").text(formatCurrency(d.close));
+            }
+          });
+
+
+// function mousemove() {
+//
+//   var coordinates = [0, 0];
+//   coordinates = d3.mouse(this);
+//   var x = coordinates[0];
+//   var y = coordinates[1];
+//
+//   // D3 v4
+//   var x = d3.event.pageX - document.getElementById("idsvg").getBoundingClientRect().x + 10
+//   var y = d3.event.pageY - document.getElementById("idsvg").getBounx
+//
+//   // svg.append("circle")
+//   //     .attr("r", 4.5)
+//   //     .attr("id", "circle ")
+//   //     .attr("transform", "translate("+x+"," + height + ")");
+//
+//   //document.getElementById("circle").style.transform = translate(x, height);
+//   //console.log(document.getElementById("circle").height);
+//
+// }
 
 </script>
 
