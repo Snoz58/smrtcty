@@ -7,7 +7,7 @@ Définition
 
 Ce projet a pour objectif la réalisation d'un système de « Smart City » à l’échelle d’un village.
 
-Il est Open source, basé sur des éléments eux aussi open source, autant du côté matériel (Arduino, Raspberry pi, …) que du côté logiciel (OpenStreetMaps, Bootstrap, Charts …).
+Il est Open source, et basé sur le plus d'éléments open source possible, côté matériel comme logiciel.
 
 Cette solution se présente sous la forme d'un « kit », réplicable, simple à mettre en place et à utiliser, et polyvalent.
 
@@ -21,7 +21,7 @@ Ces nœuds permettent le captage d’information dans l’environnement (pour la
 Passerelle
 ----------
 La passerelle centralise les informations qu’elle reçoit de la part des différents nœuds.
-Elle est installée dans un bâtiment du conseil départemental (Collège par exemple) afin de bénéficier d’un accès internet et d’une alimentation électrique  et va récupérer les données des capteurs, avant de les envoyer vers une base de donnée.
+Elle se présente sous la forme d'un Raspberry Pi associé à un module sans fil, installé dans un bâtiment afin de bénéficier d’un accès internet et d’une alimentation électrique. Elle va récupérer les données des capteurs, et les renvoyer vers une base de donnée distante.
 
 Plateforme de centralisation
 ----------------------------
@@ -32,7 +32,7 @@ Transmission Sans Fil
 ---------------------
 Les solutions de transmission de donnée retenues pour ce projet sont toutes basées sur des technologies radio :
  * Radio « standard » 433MHz (appareils domotique, etc).
- * xBee / ZigBee, protocole dérivé de la radio, optimisé pour la portée.
+ * xBee / ZigBee.
  * LoRa, dérivé également de la technologie radio, orienté basse consommation longue portée.
 
-Solution de transmission sans fil sera choisie en fonction des résultat obtenus lors des tests et de la situation dans laquelle le système sera mis en place.
+Solution de transmission sans fil sera choisie en fonction des résultat obtenus lors des tests de portée et de la situation dans laquelle le système sera mis en place.

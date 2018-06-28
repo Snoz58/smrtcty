@@ -1,0 +1,58 @@
+Module,Infos,Portée,Mise en place,Compatibilité,Prix,Disponibilité,Avantages,Inconvénients,Lien
+,,,,,,,,,
+Radio,,,,,,,,,
+HC-12,,1-2Km,Simple / Moyenne,Modules avec documentation pour Arduino et Raspberry, ~ 4€ / Unité (chine),,Simple et abordable,"Fréquence des 433MHz utilisée par tout et n’importe quoi, risque de « brouillage » du signal par d’autres appareils",https://www.ebay.com/itm/433Mhz-HC-12-SI4463-Wireless-Serial-Port-Module-1000m-Replace-Bluetooth-TOP-/401051275954?hash=item5d6084d2b2:g:JawAAOSwMHdXS9OD
+HC-11,,150-300m,Identique HC,,,,,,https://www.elecrow.com/434mhz-serial-rf-module-hc11-140m-p-873.html
+UM-12,,~ 1Km,Moyenne,Pas / Peu de doc pour raspberry ni arduino,,,Véritable antene,,https://www.sparkfun.com/products/retired/560
+,,,,,,,,,
+LoRa,,,,,,,,,
+,,,,,,,,,
+LORA32U4,,1-7Km,Moyenne / Compliquée,,,,,,
+SX1278,,1Km,,,,,,Cartes chinoises,
+SX1272,,1Km,,,,,Carte utilisée dans libelium (possibilité de la récupérer?),,
+Émetteur-Récepteur Longue Portée LoRa ,Basé sur la puce RFM98W,« Extrèmement longue »,,,"17,00 €",,,,https://www.robotshop.com/eu/fr/blindage-emetteur-recepteur-longue-portee-lora-433-mhz.html?gclid=Cj0KCQjwv73VBRCdARIsAOnG8u1kDbd85TuSjtH_tD0pzPG0f9dZcMlOAB92UFPK3dhkQTFg1jifTcUaAidDEALw_wcB#reviewBox
+RFM95w,Module souvent utilisé dans des shields,,,,,,,,
+Module radio FireBeetle,Basé sur  SX127x,~ 1Km,,Pas de doc pour raspberry pi,"18,00 €",,"Carte, Headers et Antenne inclus",Peu de documentation,
+Chistera-Pi,,,,Concu pour raspberry pi,"52,00 €",,,,
+,,,,,,,,,
+Bluetooth,,,,,,,,,
+,,,,,,,,,
+HC-05,,~9m,Simple / moyenne,Compatible avec n‘importe quel module Bluetooth maître,"13,50 €",,,Faible portée,http://www.conrad.fr/ce/fr/product/096819/Module-de-transmission-HC-05-Bluetooth-Velleman-VMA302-adapt-aux-cartes-Arduino-1-pcs?ref=searchDetail
+HC-06,,,,,"23,00 €",,"Mêmes caractéristiques que HC-05 + possibilité 
+De configuration en master",,https://www.robotshop.com/eu/fr/module-bluetooth-hc-06.html
+BLE Link Bee,,60m,Moyenne,,"17,00 €",,,"Portée théorique intéressante,mais le bluetooth peut vite perdre son signal selon l’environnement",https://www.robotshop.com/eu/fr/bluetooth-ble-link-bee.html
+BLEduino EF01021,Basé Sur BLE Mini,50m,,,34€ (Avec carte Arduino),,Module directement intégré dans la carte,,https://www.gotronic.fr/art-carte-bleduino-ef01021-23463.html
+BlueSMiRF,,100m,,,"25,00 €",,,,https://www.robotshop.com/eu/fr/modem-bluetooth-bluesmirf-silver.html
+Shield Bluetooth with RN-42,Même puce que le BlueSmirf,20m,,,,,Simple d’utilisation : shield à poser sur l’arduino,Faible portée,
+,,,,,,,,,
+Wifi,,,,,,,,,
+ESP8266,,"~ 50-100m
+(portée moyenne du WiFi
+Dépendant de l’environnement)",Simple / moyenne,Nécessite une passerelle Wifi ou une carte Wifi sur le raspberry,"8,00 €",GoTronic,"Simple à mettre en place, documentée,
+abordable, peu de pin utilisés",,https://www.gotronic.fr/art-module-wifi-serie-esp8266-113990084-23666.htm
+Easy Wifi EF02036,"Basé sur CC3000 de TI
+Bus STI",,Moyenne,,"38,00 €",GoTronic,Port micro SD pour stockage en local,Prix élevé / Pas de DHCP,https://www.gotronic.fr/art-shield-easy-wifi-ef02036-23478.htm
+Wifi DEV12071,,,,,//,GoTronic,,Prix élevé,https://www.gotronic.fr/art-shield-wifi-dev12071-21539.htm
+Wifi V1.1 103030027,Basé sur WIZnet Fi250,,,,"50,00 €",,,,https://www.gotronic.fr/art-shield-wifi-v1-1-103030027-24848.htm
+,,,,,,,,,
+GPRS,,,,,,,,Consommation électrique importante,
+Arduino GSM V2,Solution officielle Arduino,Infinie dans la limite de l’accès au réseau,Moyenne / Compliquée,"Les bandes de communication du FAI doivent êtres 
+Compatibles avec le module",80€ + forfait,,,"Cher (Module + abonnement mensuel), basé sur le réseau d’un tiers",https://www.robotshop.com/eu/fr/blindage-arduino-gsm-v2-connecteur-antenne.html?gclid=Cj0KCQjwv73VBRCdARIsAOnG8u1kojyabiov7x8hBJj9FaMeJYu-3bTlSJShl7RWOBnU-4KJmMhMgZcaAoZkEALw_wcB
+SIM900A,,,,,10-30€ (chine) + forfait,,,"Abonnement nécessaire, plus compliqué à répliquer",https://www.amazon.fr/RHDZQ-Conseil-D%C3%A9veloppement-Transmission-SIM900A/dp/B074H7NNGQ
+SIM800L,,,,,3-20€ (chine) + forfait,,plus petit que SIM900 + support bluetooth et FM,,https://www.amazon.fr/Sim800l-Quadribande-Embarqu%C3%A9e-Antenne-Arduino/dp/B01FQPLG9W
+,,,,,,,,,
+{PORTÉE TROP FAIBLE} NFC ,,10cm,,,,,,,
+,,,,,,,,,
+Zigbee / Xbee,,,,,,,,,
+,,,,,,,,,
+XBee Pro 50mW  Series 2,2.4GHz,1 mile ~ 1.5Km,Moyenne,"Hats et modules adaptateurs pour utilisation sur 
+Arduino et Raspberry",,,"Bonne documentation
+Protocole Xbee connu et documenté",Parfois difficile à trouver (particulièrement les cartes en 900MHz),
+XBee Pro 63mW Series 2B,2.4GHz,1 mile ~ 1.5Km,,,"21,00 €",,,,https://www.amazon.fr/Module-XBee-S%C3%A9rie-2C-XB24CZ7WIT-004/dp/B01EYKUYBG/ref=sr_1_1?ie=UTF8&qid=1521537324&sr=8-1&keywords=xbee+pro&dpID=51kP6UYXUML&preST=_SY300_QL70_&dpSrc=srch
+XBee Pro 60mW Series 1,2.4GHz,1 mile ~ 1.5Km,,,"42,00 €",,,,https://www.robotshop.com/eu/fr/module-emetteur-recepteur-xbee-pro-antenne-a-fil.html
+XBee Pro 900,900MHz,6-28 miles ~ 9-45Km,,,,,,,
+XTend 900 1W,900MHz,40 miles ~65Km,,,,,,,
+,,,,,,,,,
+Solutions basées sur des réseaux existants : ,,,,,,,,,
+LoRaWan,,Dépend de la couverture de la zone,,,Modules + Abonnement pour utiliser le réseau,,Portée,Nécessite une bonne couverture / moins adaptable que d’autres solutions / dépendance à un tiers,
+Sigfox,,Dépend de la couverture de la zone,,,//,,,,
