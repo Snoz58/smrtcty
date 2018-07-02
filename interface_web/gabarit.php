@@ -28,16 +28,16 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link <?php echo ($titre=="SmartVillage" ? 'active' : ''); ?>" href="index.php?action=accueil">Accueil</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="carte.php">Carte</a>
+          <li class="nav-item <?php echo ($titre=="Carte" ? 'active' : ''); ?>">
+            <a class="nav-link" href="index.php?action=carte">Carte</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="donnees.php">Données</a>
+          <li class="nav-item <?php echo ($titre=="Capteurs" ? 'active' : ''); ?>" >
+            <a class="nav-link" href="index.php?action=data">Données</a>
           </li>
         </ul>
-          <a href="#" class="btn btn-outline-success my-2 my-sm-0">Connexion</a>
+          <!-- <a href="#" class="btn btn-outline-success my-2 my-sm-0">Connexion</a> -->
       </div>
     </nav>
 
