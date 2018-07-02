@@ -37,8 +37,8 @@ else {
 }
 
 
-// header('Content-Type: text/csv');
-// header('Content-Disposition: filename="donnees.csv"');
+header('Content-Type: text/csv');
+header('Content-Disposition: filename="donnees.csv"');
 
 
 ?>
