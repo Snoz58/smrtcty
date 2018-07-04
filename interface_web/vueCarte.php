@@ -1,4 +1,5 @@
-<?php $titre = 'Carte'; ?>
+<?php $infoVillage = getInfosVillage(); ?>
+<?php $titre = 'Carte' ?>
 
 <?php ob_start(); ?>
 

@@ -1,0 +1,44 @@
+
+.accueil::before{
+  content: "";
+  background-color: #222;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -2;
+}
+.accueil{
+  height: 100%;
+  /* background-color: #222; */
+  display: block;
+}
+.accueil::after{
+  content: "";
+  background-image: url("../../images/nievre-lacs.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.accueil_contenu{
+  color: #fff;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+
+
+main{
+  height: 100%;
+}

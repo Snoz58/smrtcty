@@ -14,7 +14,8 @@ try {
       accueil();
     }
     else
-      throw new Exception("Action non valide");
+      // throw new Exception("Action non valide");
+      accueil();
   }
   else {
     accueil();  // action par défaut

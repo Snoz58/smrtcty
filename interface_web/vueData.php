@@ -1,3 +1,4 @@
+<?php $infoVillage = getInfosVillage(); ?>
 <?php $titre = 'Capteurs'; ?>
 
 <?php ob_start(); ?>

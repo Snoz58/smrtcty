@@ -1,4 +1,5 @@
-<?php $titre = 'Erreur'; ?>
+<?php $infoVillage = getInfosVillage(); ?>
+<?php $titre = 'Erreur' ?>
 
 <?php ob_start() ?>
 <main role="main" class="container">

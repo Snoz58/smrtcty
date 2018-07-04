@@ -8,7 +8,6 @@ function carte() {
 
 function accueil() {
   require 'vueAccueil.php';
-  // require 'vueCarte.php';
 }
 
 function data() {

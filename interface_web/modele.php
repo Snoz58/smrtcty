@@ -41,4 +41,11 @@ ini_set('display_errors', 1);
     return $values;
 
   }
+
+  function getInfosVillage(){
+    $bdd = getConnection();
+    $village = $bdd->query("select * from Ville");
+
+    return $village->fetch();
+  }
 ?>

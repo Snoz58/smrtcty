@@ -10,17 +10,19 @@
     <link rel="stylesheet" type="text/css" href="contenu/css/style.css">
     <!-- CSS de la Carte -->
     <link rel="stylesheet" type="text/css" href="contenu/css/carte.css">
+    <!-- CSS de l'accueil -->
+    <link rel="stylesheet" type="text/css" href="contenu/css/accueil.css">
     <!-- Javascript pour OpenLayers -->
     <script src="contenu/js/ol.js"></script>
 
-    <title><?= $titre ?></title>
+    <title><?= $titre." - ".$infoVillage["Nom"] ?></title>
 
   </head>
 
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Smart*nomDuVillage*</a>
+      <a class="navbar-brand" href="index.php">Smart-<?= $infoVillage["Nom"] ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,7 +39,6 @@
             <a class="nav-link" href="index.php?action=data">Données</a>
           </li>
         </ul>
-          <!-- <a href="#" class="btn btn-outline-success my-2 my-sm-0">Connexion</a> -->
       </div>
     </nav>
 
