@@ -71,3 +71,7 @@ Interface
 
 Popup sur la carte OpenLayers :
 https://connect.boundlessgeo.com/docs/suite/sdk/latest/api/InfoPopup.html
+
+Export en image de Charts :
+https://stackoverflow.com/questions/20206038/converting-chart-js-canvas-chart-to-image-using-todataurl-results-in-blank-im
+http://jsfiddle.net/KSgV7/585/
