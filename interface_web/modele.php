@@ -15,10 +15,34 @@ ini_set('display_errors', 1);
       return $connection;
   }
 
+  function getInfosVillage(){
+    $bdd = getConnection();
+    $village = $bdd->query("select * from Ville");
+    return $village->fetch();
+  }
+
+  function getNodeList(){
+    $bdd = getConnection();
+    $nodeList = $bdd->query("select * from Node");
+    return $nodeList;
+  }
+
   function getNodeInfos(){
     $bdd = getConnection();
     $infos = $bdd->query("select * from Node");
     return $infos;
+  }
+
+  function getFirstSensor($node){
+    $bdd = getConnection();
+    $sensor = $bdd->query("select min(id) from Sensor where fk_IdNode = ".$node);
+    return $sensor->fetch()[0];
+  }
+
+  function getSensorList($node){
+    $bdd = getConnection();
+    $sensorList = $bdd->query("select * from Sensor where fk_IdNode = ".$node);
+    return $sensorList;
   }
 
   function getSensorValues($node, $sensor, $debut="2000-01-01", $fin="now()"){
@@ -37,15 +61,21 @@ ini_set('display_errors', 1);
                                  fk_IdSensor = ".$sensor." AND
                                  Date > ".$debut." AND
                                  Date < ".$fin);
-
     return $values;
-
   }
 
-  function getInfosVillage(){
-    $bdd = getConnection();
-    $village = $bdd->query("select * from Ville");
+  function convertDate($date){
 
-    return $village->fetch();
+    $conversion = array(
+      "Mon" => "Lun.",
+      "Tue" => "Mar.",
+      "Wed" => "Mer.",
+      "Thu" => "Jeu.",
+      "Fri" => "Ven.",
+      "Sat" => "Sam.",
+      "Sun" => "Dim."
+    );
+
+    return date("d/m/Y", strtotime($date));
   }
 ?>

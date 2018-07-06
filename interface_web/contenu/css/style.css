@@ -2,3 +2,7 @@
 body > .container {
   padding: 60px 15px 0;
 }
+
+.dropdown-toggle {
+  margin: 0.2em;
+}

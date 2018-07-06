@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="contenu/css/accueil.css">
     <!-- Javascript pour OpenLayers -->
     <script src="contenu/js/ol.js"></script>
+    <!-- Javascript pour Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 
     <title><?= $titre." - ".$infoVillage["Nom"] ?></title>
 
