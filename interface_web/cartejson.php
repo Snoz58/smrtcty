@@ -19,7 +19,7 @@ foreach ($node as $value) {
     "properties": {
       "Id": "'.$value["Id"].'",
       "Name": "'.$value["Nom"].'",
-      "Lien": "<a href=\'#\'>Lien</a>"
+      "Lien": "<a href=\'index.php?action=data&node='.$value["Id"].'\'>Lien</a>"
     },
     "geometry": {
       "type": "Point",
