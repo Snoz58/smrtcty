@@ -23,6 +23,7 @@
 
     $labels = substr($labels, 0, -1);
     $data = substr($data, 0, -1);
+
   }
 
   ob_start();
@@ -67,9 +68,9 @@
           Télécharger
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">CSV</a>
-          <a class="dropdown-item" href="#">XML</a>
-          <a class="dropdown-item" href="#">PNG</a>
+          <a class="dropdown-item" target="_blank" href="datacsv.php?node=<?= $node ?>&sensor=<?= $sensor ?>">CSV</a>
+          <a class="dropdown-item" target="_blank" href="dataxml.php?node=<?= $node ?>&sensor=<?= $sensor ?>">XML</a>
+          <a class="dropdown-item" target="_blank" onclick="done()" >PNG</a>
         </div>
       </div>
     </div>
@@ -103,8 +104,7 @@
   </div>
 
 <canvas id="canvas" width="400px" height="400px"></canvas>
-
-
+<img id="url" src="" alt="">
 <script>
 
 var lineChartData = {
@@ -123,15 +123,16 @@ var lineChartData = {
 		}
 
 function done(){
-  //alert("haha");
-  var url=myLine.toBase64Image();
-  document.getElementById("url").src=url;
+  // var url=myLine.toBase64Image();
+  window.open(myLine.toBase64Image(),'_blank');
+
+  // document.getElementById("url").src=url;
 }
 var options = {
   bezierCurve : false,
-  animation: {
-    onComplete: done
-  }
+  // animation: {
+  //   onComplete: done
+  // }
 };
 
 

@@ -6,3 +6,7 @@ body > .container {
 .dropdown-toggle {
   margin: 0.2em;
 }
+
+.dropdown-item {
+  cursor: pointer;
+}
