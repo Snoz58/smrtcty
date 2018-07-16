@@ -75,3 +75,6 @@ https://connect.boundlessgeo.com/docs/suite/sdk/latest/api/InfoPopup.html
 Export en image de Charts :
 https://stackoverflow.com/questions/20206038/converting-chart-js-canvas-chart-to-image-using-todataurl-results-in-blank-im
 http://jsfiddle.net/KSgV7/585/
+
+Exemples des différents schémas :
+http://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/#1-bar-chart
