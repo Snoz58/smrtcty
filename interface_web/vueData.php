@@ -4,8 +4,8 @@
 
 
   // Valeurs par défaut en cas de non remplissage du formulaire
-  $debut = (!empty($_POST["debut"])) ? $_POST["debut"] : "2000-01-01";
-  $fin = (!empty($_POST["fin"])) ? $_POST["fin"] : "now()";
+  $debut = (!empty($_POST["dateDebut"])) ? $_POST["dateDebut"] : "2000-01-01";
+  $fin = (!empty($_POST["dateFin"])) ? $_POST["dateFin"] : "now()";
 
   $node = (!empty($_GET["node"])) ? $_GET["node"] : 1;
   // $defaultSensor = (!empty(getFirstSensor($node))) ? getFirstSensor($node) : getFirstSensor($node);
@@ -70,7 +70,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" target="_blank" href="datacsv.php?node=<?= $node ?>&sensor=<?= $sensor ?>">CSV</a>
           <a class="dropdown-item" target="_blank" href="dataxml.php?node=<?= $node ?>&sensor=<?= $sensor ?>">XML</a>
-          <a class="dropdown-item" target="_blank" onclick="done()" >PNG</a>
+          <a class="dropdown-item" id = "downloadImage" target="_blank" href="#" download="donnees_capteur.png" >PNG</a>
         </div>
       </div>
     </div>
@@ -103,18 +103,25 @@
     </div>
   </div>
 
-<canvas id="canvas" width="400px" height="400px"></canvas>
-<img id="url" src="" alt="">
+  <div class="chart-container">
+      <canvas id="canvas"></canvas>
+  </div>
+</main>
+
 <script>
 
 var lineChartData = {
+  fillColor : "#ffff00",
+    strokeColor : "#000000",
 			labels : [<?= $labels ?>],
 			datasets : [
 				{
-					fillColor : "rgba(220,220,220,0.5)",
-					strokeColor : "rgba(220,220,220,1)",
-					pointColor : "rgba(220,220,220,1)",
-					pointStrokeColor : "#fff",
+          label : "temperature",
+
+          fill: "bottom",
+          backgroundColor: "#a8d4ff ", // couleur des points de la courbe
+          borderColor: "#17a2b8", // couleur de la courbe
+					pointStrokeColor : "#F00",
 					data : [<?= $data ?>],
 					bezierCurve : false
 				}
@@ -123,16 +130,22 @@ var lineChartData = {
 		}
 
 function done(){
-  // var url=myLine.toBase64Image();
-  window.open(myLine.toBase64Image(),'_blank');
+  var url=myLine.toBase64Image();
+  ///window.open(myLine.toBase64Image(),'_blank');
 
-  // document.getElementById("url").src=url;
+  document.getElementById("downloadImage").href=url;
 }
 var options = {
-  bezierCurve : false,
-  // animation: {
-  //   onComplete: done
-  // }
+  animation: {
+    onComplete: done
+  },
+  scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
 };
 
 
@@ -143,9 +156,6 @@ var myLine = new Chart(document.getElementById("canvas").getContext("2d"),{
 });
 
 </script>
-
-</main>
-
 
 <?php $contenu = ob_get_clean(); ?>
 
