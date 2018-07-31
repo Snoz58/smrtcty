@@ -1,8 +1,7 @@
-Documentation
-=============
+# Documentation
 
-Exemples
---------
+
+## Exemples
 
 Site de l'association la ville intelligente citoyenne (LVIC) :
 https://www.lavilleintelligentecitoyenne.com/nos-actions
@@ -14,8 +13,7 @@ Cas de Saint Sulpice, "Smart village", tableau de bord :
 https://saint-sulpice.aliotys.com/#/Tableau-de-bord/Grand-public-Display-31
 
 
-Prestataires
-------------
+## Prestataires
 
 Alkante, création de tableau de bord personnalisés :
 https://www.alkante.com/alkante
@@ -24,8 +22,9 @@ Wi6labs, mise en place d'un réseau de capteurs / IOT :
 http://www.wi6labs.com/
 
 
-Transmission sans fil
----------------------
+## Transmission sans fil
+
+### LoRa
 
 Intro technologie LoRa (cartes, topologie, outils, ...) :
 http://www.instructables.com/id/Introducing-LoRa-/
@@ -39,8 +38,7 @@ https://www.cooking-hacks.com/documentation/tutorials/lorawan-for-arduino-raspbe
 Infos LoRaWAN / Sigfox :
 https://forum.arduino.cc/index.php?topic=503808.0
 
-Guide modules Bluetooth avec spécifications :
-https://www.intorobotics.com/pick-right-bluetooth-module-diy-arduino-project/
+### xBee
 
 Communication longue distance avec xBee :
 https://electronics.stackexchange.com/questions/1149/wireless-communication-over-long-distances
@@ -48,8 +46,16 @@ https://electronics.stackexchange.com/questions/1149/wireless-communication-over
 Guide modules xBee avec spécifications :
 https://www.sparkfun.com/pages/xbee_guide
 
-Transmission Filaire
---------------------
+### Radio
+
+### Autres
+
+Guide modules Bluetooth avec spécifications :
+https://www.intorobotics.com/pick-right-bluetooth-module-diy-arduino-project/
+
+
+
+## Transmission Filaire
 
 Communication série Arduino <-> Raspberry :
 http://www.instructables.com/id/Raspberry-Pi-Arduino-Serial-Communication/
@@ -60,14 +66,12 @@ https://www.pihomeserver.fr/2013/08/13/raspberry-pi-home-server-arduino-lier-les
 Communication Arduino <-> Raspberry via UART :
 https://electrosome.com/uart-raspberry-pi-python/
 
-Capteurs
---------
+## Capteurs
 
 Capteurs de gaz :
 https://snootlab.com/lang-en/51-gas
 
-Interface
----------
+## Interface
 
 Popup sur la carte OpenLayers :
 https://connect.boundlessgeo.com/docs/suite/sdk/latest/api/InfoPopup.html
