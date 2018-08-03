@@ -50,6 +50,17 @@ https://www.sparkfun.com/pages/xbee_guide
 
 [MODULE HC-12](./hc-12.md)
 
+Tutoriel d'utilisation du module + exemples :
+https://howtomechatronics.com/tutorials/arduino/arduino-and-hc-12-long-range-wireless-communication-module/
+
+Video + ressource commandes AT :
+https://www.instructables.com/id/Long-Range-18km-Arduino-to-Arduino-Wireless-Commun/
+
+[MODULE NRF24L01](#)
+
+Tutoriel d'utilisation du module + exemples :
+https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-nrf24l01-tutorial/
+
 ### Autres
 
 Guide modules Bluetooth avec spécifications :
@@ -72,6 +83,16 @@ https://electrosome.com/uart-raspberry-pi-python/
 
 Capteurs de gaz :
 https://snootlab.com/lang-en/51-gas
+
+Capteur de particules avec une autre carte contrôleur :
+http://geojournalism.org/2014/04/dustduino-arduino-uno-edition/
+
+Capteur de particules avec tests :
+http://www.howmuchsnow.com/arduino/airquality/grovedust/
+
+Sonde DHT22 :
+http://www.manuel-esteban.com/lire-une-sonde-dht22-avec-un-arduino/
+
 
 ## Interface
 
