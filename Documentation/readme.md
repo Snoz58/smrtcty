@@ -26,6 +26,18 @@ http://www.wi6labs.com/
 
 ### LoRa
 
+---
+
+***[MODULE ADAFRUIT RFM95W](./RFM95W.md)***
+
+Documentation module RFM95W (ref 3072) :
+https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/using-the-rfm69-radio
+
+---
+
+Exemples / docmentation Python :
+https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts?view=all
+
 Intro technologie LoRa (cartes, topologie, outils, ...) :
 http://www.instructables.com/id/Introducing-LoRa-/
 
@@ -48,7 +60,9 @@ https://www.sparkfun.com/pages/xbee_guide
 
 ### Radio
 
-[MODULE HC-12](./hc-12.md)
+---
+
+***[MODULE HC-12](./hc-12.md)***
 
 Tutoriel d'utilisation du module + exemples :
 https://howtomechatronics.com/tutorials/arduino/arduino-and-hc-12-long-range-wireless-communication-module/
@@ -56,10 +70,14 @@ https://howtomechatronics.com/tutorials/arduino/arduino-and-hc-12-long-range-wir
 Video + ressource commandes AT :
 https://www.instructables.com/id/Long-Range-18km-Arduino-to-Arduino-Wireless-Commun/
 
-[MODULE NRF24L01](#)
+---
+
+***[MODULE NRF24L01](#)***
 
 Tutoriel d'utilisation du module + exemples :
 https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-nrf24l01-tutorial/
+
+---
 
 ### Autres
 
