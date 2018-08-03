@@ -48,6 +48,8 @@ https://www.sparkfun.com/pages/xbee_guide
 
 ### Radio
 
+[MODULE HC-12](./hc-12.md)
+
 ### Autres
 
 Guide modules Bluetooth avec spécifications :
