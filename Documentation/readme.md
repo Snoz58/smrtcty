@@ -33,6 +33,9 @@ http://www.wi6labs.com/
 Documentation module RFM95W (ref 3072) :
 https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/using-the-rfm69-radio
 
+Autres infos :
+https://forum.arduino.cc/index.php?topic=471254.0
+
 ---
 
 Exemples / docmentation Python :
@@ -72,7 +75,7 @@ https://www.instructables.com/id/Long-Range-18km-Arduino-to-Arduino-Wireless-Com
 
 ---
 
-***[MODULE NRF24L01](#)***
+***[MODULE NRF24L01](./NRF24L01.md)***
 
 Tutoriel d'utilisation du module + exemples :
 https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-nrf24l01-tutorial/

@@ -233,6 +233,8 @@ void loop()
 }
 ```
 
-On observe bien la communication entre les deux modules : 
+On observe bien la communication entre les deux modules :
 
 ![Communication](Images/RFM95W_4.png)
+
+> /!\ Pour faire clignoter une led avec ce montage, il est necessaire d'utiliser une autre que celle de la carte, étant donné que le pin 13 est déjà utilisé par le module LoRa /!\
