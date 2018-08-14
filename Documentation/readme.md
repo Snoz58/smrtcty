@@ -87,7 +87,8 @@ https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-n
 Guide modules Bluetooth avec spécifications :
 https://www.intorobotics.com/pick-right-bluetooth-module-diy-arduino-project/
 
-
+Transformation int to char :
+https://www.instructables.com/id/Converting-integer-to-character/
 
 ## Transmission Filaire
 
