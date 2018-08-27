@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 
   const USERNAME="root";
-  const PASSWORD="";
+  const PASSWORD="root";
   const HOST="localhost";
   const DB="SmartVillage";
 
