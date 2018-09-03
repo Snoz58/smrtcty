@@ -34,10 +34,11 @@
     <div class="col">
       <div class="dropdown float-left">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Point de captage
+        Point de captage <?php echo $node.' - '.getThatNodeName($node); ?>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <?php $nodeList = getNodeList();
+          <?php
+          $nodeList = getNodeList();
           foreach ($nodeList as $Value) {
             if ($node == $Value["Id"]){
               echo '<a class="dropdown-item active" href="index.php?action=data&node='.$Value["Id"].'">Point de captage '.$Value["Id"].' - '.$Value["Nom"].'</a>';

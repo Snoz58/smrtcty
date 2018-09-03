@@ -1,10 +1,14 @@
 <?php
 ini_set('display_errors', 1);
 
+/*--------------------------------------------------------*/
+/*                    Common  database                    */
+/*--------------------------------------------------------*/
+
   const USERNAME="root";
   const PASSWORD="root";
   const HOST="localhost";
-  const DB="SmartVillage";
+  const DB="SmartVillageTEST";
 
   function getConnection(){
       $username = USERNAME;
@@ -31,6 +35,12 @@ ini_set('display_errors', 1);
     $bdd = getConnection();
     $infos = $bdd->query("select * from Node");
     return $infos;
+  }
+
+  function getThatNodeName($id){
+    $bdd = getConnection();
+    $sensor = $bdd->query("select * from Node where Id = ".$id);
+    return $sensor->fetch()[1];
   }
 
   function getFirstSensor($node){
