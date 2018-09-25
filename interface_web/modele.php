@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
   const USERNAME="root";
   const PASSWORD="root";
   const HOST="localhost";
-  const DB="SmartVillageTEST";
+  const DB="SmartVillage";
 
   function getConnection(){
       $username = USERNAME;
@@ -18,12 +18,29 @@ ini_set('display_errors', 1);
       $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
       return $connection;
   }
+  /*--------------------------------------------------------*/
+  /*                         Accueil                        */
+  /*--------------------------------------------------------*/
+
+  function getAccueil(){
+    $bdd = getConnection();
+    $accueil = $bdd->query("select * from Accueil");
+    return $accueil->fetch();
+  }
+
+  /*--------------------------------------------------------*/
+  /*                         Village                        */
+  /*--------------------------------------------------------*/
 
   function getInfosVillage(){
     $bdd = getConnection();
     $village = $bdd->query("select * from Ville");
     return $village->fetch();
   }
+
+  /*--------------------------------------------------------*/
+  /*                          Node                          */
+  /*--------------------------------------------------------*/
 
   function getNodeList(){
     $bdd = getConnection();
@@ -42,6 +59,10 @@ ini_set('display_errors', 1);
     $sensor = $bdd->query("select * from Node where Id = ".$id);
     return $sensor->fetch()[1];
   }
+
+  /*--------------------------------------------------------*/
+  /*                         Sensor                         */
+  /*--------------------------------------------------------*/
 
   function getFirstSensor($node){
     $bdd = getConnection();
@@ -73,6 +94,10 @@ ini_set('display_errors', 1);
                                  Date < ".$fin);
     return $values;
   }
+
+  /*--------------------------------------------------------*/
+  /*                         Autres                         */
+  /*--------------------------------------------------------*/
 
   function convertDate($date){
 

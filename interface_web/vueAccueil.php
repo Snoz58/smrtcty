@@ -1,4 +1,7 @@
-<?php $infoVillage = getInfosVillage(); ?>
+<?php
+$infoVillage = getInfosVillage();
+$accueil = getAccueil();
+?>
 <?php $titre = 'SmartVillage'; ?>
 
 
@@ -7,9 +10,8 @@
   <main role="main">
     <div class="accueil_contenu col-md-8 offset-md-2">
 
-      <h1 class="cover-heading">Titre !</h1>
-      <p class="lead">Contenu, quelques lignes explicatives sur le concept, le principe, le fonctionnement ...
-      Le tout sur une super image de fond :P</p>
+      <h1 class="cover-heading"><?= $accueil['Titre'] ?></h1>
+      <p class="lead"><?= $accueil['Contenu'] ?></p>
       <p class="lead">
         <a href="index.php?action=carte" class="btn btn-lg btn-success">Accéder à la carte</a>
       </p>
