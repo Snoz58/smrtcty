@@ -1,0 +1,10 @@
+lat	lon	title	description	icon	iconSize	iconOffset
+
+46.991218	3.152958	emmeteur	Dernière place avant livraison	Ol_icon_blue_example.png	24,24	0,-24
+
+46.991635	3.152711	recepteur	Autre entrée ste Bernadette	Ol_icon_red_example.png	16,16	-8,-8
+46.991224	3.154951	recepteur	Poubelle foot milieu parc	Ol_icon_red_example.png	16,16	-8,-8
+46.991527	3.154382	recepteur	Face entrée résidence Port Royal	Ol_icon_red_example.png	16,16	-8,-8
+46.990667	3.152955	recepteur	Passage piéton école	Ol_icon_red_example.png	16,16	-8,-8
+46.99244	3.153379	recepteur	Devant ste Bernadette	Ol_icon_red_example.png	16,16	-8,-8
+

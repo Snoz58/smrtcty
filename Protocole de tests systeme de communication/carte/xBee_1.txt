@@ -1,0 +1,10 @@
+lat	lon	title	description	icon	iconSize	iconOffset
+
+46.995311	3.153682	emmeteur	Dernière place avant livraison	Ol_icon_blue_example.png	24,24	0,-24
+
+46.996999	3.153948	recepteur	Entrée Courtenay	Ol_icon_red_example.png	16,16	-8,-8
+46.994315	3.154396	recepteur	Face Collège n°22	Ol_icon_red_example.png	16,16	-8,-8
+46.993291	3.153484	recepteur	Première maison après Bernadette	Ol_icon_red_example.png	16,16	-8,-8
+46.994862	3.153023	recepteur	2bis rue Louis Vicat	Ol_icon_red_example.png	16,16	-8,-8
+
+

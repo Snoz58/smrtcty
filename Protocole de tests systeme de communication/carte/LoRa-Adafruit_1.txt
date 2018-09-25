@@ -1,0 +1,13 @@
+lat	lon	title	description	icon	iconSize	iconOffset
+
+46.995311	3.153682	emmeteur	Dernière place avant livraison	Ol_icon_blue_example.png	24,24	0,-24
+
+46.989284	3.152875	recepteur	Bout parc	Ol_icon_red_example.png	16,16	-8,-8
+46.991604	3.152341	recepteur	Entre deux portes bernadette	Ol_icon_red_example.png	16,16	-8,-8
+46.994994	3.149927	recepteur	No 20 face leclerc drive	Ol_icon_red_example.png	16,16	-8,-8
+46.99961	3.154297	recepteur	Bout Avenue	Ol_icon_red_example.png	16,16	-8,-8
+46.996421	3.156791	recepteur	Bas rue Dupin	Ol_icon_red_example.png	16,16	-8,-8
+46.996209	3.157411	recepteur	Salon tatouage	Ol_icon_red_example.png	16,16	-8,-8
+46.995254	3.158003	recepteur	Arrêt de bus Colbert	Ol_icon_red_example.png	16,16	-8,-8
+46.996972	3.156802	recepteur	Patte d'oie Dominos	Ol_icon_red_example.png	16,16	-8,-8
+

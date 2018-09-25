@@ -1,0 +1,29 @@
+<html>
+	<body>
+		<div id="mapdiv"></div>
+
+		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+		<script>
+			map = new OpenLayers.Map("mapdiv");
+			map.addLayer(new OpenLayers.Layer.OSM());
+					 
+			var pois = new OpenLayers.Layer.Text( "My Points",
+			{
+				// location:"hc12_1.txt",
+				//location:"xBee_1.txt",
+				location:"LoRa-Adafruit_1.txt",
+				projection: map.displayProjection
+			});
+			map.addLayer(pois);
+			// HC12
+			//var lonLat = new OpenLayers.LonLat( 3.15295, 46.99090 ).transform(
+			// xBee & LoRa-Adafruit
+			var lonLat = new OpenLayers.LonLat( 3.153682, 46.995311 ).transform(
+				new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+				map.getProjectionObject() // to Spherical Mercator Projection
+			);
+			var zoom=16;
+			map.setCenter (lonLat, zoom);  
+		</script>
+	</body>
+</html>
