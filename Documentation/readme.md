@@ -64,6 +64,7 @@ Documentation paramétrage / utilisation logiciel XCTU :
 http://www.electro-info.ovh/index.php?id=231
 https://learn.sparkfun.com/tutorials/exploring-xbees-and-xctu
 http://www.libelium.com/development/waspmote/documentation/x-ctu-tutorial/
+https://www.digi.com/resources/documentation/Digidocs/90001456-13/tasks/t_wk_configure_xbees.htm
 
 ---
 
