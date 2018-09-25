@@ -65,7 +65,7 @@ if (!empty($_GET['action'] ) ){
     </table>
 
     <div class="float-right">
-      <a class="btn btn-outline-primary btn-lg" href="index.php?step=3">Revenir</a>
+      <a class="btn btn-outline-primary btn-lg" href="index.php?step=4">Revenir</a>
       <a class="btn btn-primary btn-lg" href="addUniteForm.php">Ajouter une unité</a>
     </div>
   </main>

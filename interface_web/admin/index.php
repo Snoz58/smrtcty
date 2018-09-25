@@ -18,6 +18,9 @@ try {
         include "ville.php";
         break;
       case 3 :
+        include "accueil.php";
+        break;
+      case 4 :
         include "node.php";
         break;
     }

@@ -67,6 +67,42 @@ ini_set('display_errors', 1);
       return false;
     }
   }
+  /*--------------------------------------------------------*/
+  /*                         Accueil                        */
+  /*--------------------------------------------------------*/
+
+  // Récupération de la table Ville
+  function getInfosAccueil(){
+    $bdd = getConnection();
+    $accueil = $bdd->query("select * from Accueil");
+    return $accueil->fetch();
+  }
+
+  // Initialisation de la table Ville avec le contenu
+  function setInfosAccueil($titre, $contenu){
+    $bdd = getConnection();
+
+    if ($bdd->exec('INSERT INTO Accueil SET Titre = "'.$titre.'",
+                                            Contenu = "'.$contenu.'";')){
+      return true;
+
+    }
+    else
+      return false;
+  }
+
+  // Mise à jour de la table Ville
+  function updateInfosAccueil($titre, $contenu){
+    $bdd = getConnection();
+
+    if ($bdd->exec('UPDATE Accueil SET Titre = "'.$titre.'",
+                                       Contenu = "'.$contenu.'";')){
+      return true;
+
+    }
+    else
+      return false;
+  }
 
   /*--------------------------------------------------------*/
   /*                         Village                        */
@@ -80,14 +116,34 @@ ini_set('display_errors', 1);
   }
 
   // Initialisation de la table Ville avec le contenu
-  function setInfosVillage($nom, $rue, $cp, $mail, $telephone){
+  function setInfosVillage($nom, $rue, $cp, $mail, $telephone, $lat, $long){
     $bdd = getConnection();
 
     if ($bdd->exec('INSERT INTO Ville SET Nom = "'.$nom.'",
                                           Adresse = "'.$rue.'",
                                           Code_postal = "'.$cp.'",
                                           Mail = "'.$mail.'",
-                                          Numero = "'.$telephone.'";')){
+                                          Numero = "'.$telephone.'",
+                                          Latitude = "'.$lat.'",
+                                          Longitude = "'.$long.'";')){
+      return true;
+
+    }
+    else
+      return false;
+  }
+
+  // Mise à jour de la table Ville
+  function updateInfosVillage($nom, $rue, $cp, $mail, $telephone, $lat, $long){
+    $bdd = getConnection();
+
+    if ($bdd->exec('UPDATE Ville SET Nom = "'.$nom.'",
+                                     Adresse = "'.$rue.'",
+                                     Code_postal = "'.$cp.'",
+                                     Mail = "'.$mail.'",
+                                     Numero = "'.$telephone.'",
+                                     Latitude = "'.$lat.'",
+                                     Longitude = "'.$long.'";')){
       return true;
 
     }

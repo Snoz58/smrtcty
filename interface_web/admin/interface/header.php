@@ -4,22 +4,32 @@
 $state1 = "disabled";
 $state2 = "disabled";
 $state3 = "disabled";
+$state4 = "disabled";
 
 switch ($_GET['step']){
   case 1 :
     $state1 = "active";
     $state2 = "disabled";
     $state3 = "disabled";
+    $state3 = "disabled";
     break;
   case 2 :
     $state1 = "";
     $state2 = "active";
+    $state3 = "disabled";
     $state3 = "disabled";
     break;
   case 3 :
     $state1 = "";
     $state2 = "";
     $state3 = "active";
+    $state4 = "disabled";
+    break;
+  case 4 :
+    $state1 = "";
+    $state2 = "";
+    $state3 = "";
+    $state4 = "active";
     break;
 }
 
@@ -48,16 +58,19 @@ switch ($_GET['step']){
   <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link <?= $state1 ?>" href="index.php?step=1">1. Base de données<span class="sr-only">(current)</span></a>
+        <a class="nav-link <?= $state1 ?>" href="index.php?step=1">1. Base de données</a>
       </li>
       <span class="nav-link disabled">»</span>
       <li class="nav-item">
         <a class="nav-link <?= $state2 ?>" href="index.php?step=2">2. Ville</a>
       </li>
       <span class="nav-link disabled">»</span>
-
       <li class="nav-item">
-        <a class="nav-link <?= $state3 ?>" href="index.php?step=3">3. Node & capteurs</a>
+        <a class="nav-link <?= $state3 ?>" href="index.php?step=3">3. Accueil</a>
+      </li>
+      <span class="nav-link disabled">»</span>
+      <li class="nav-item">
+        <a class="nav-link <?= $state4 ?>" href="index.php?step=4">4. Node & capteurs</a>
       </li>
 
     </ul>

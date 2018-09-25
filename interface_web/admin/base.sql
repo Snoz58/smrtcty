@@ -59,12 +59,28 @@ CREATE TABLE `Utilisateurs` (
   `Role` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
 DROP TABLE IF EXISTS `Ville`;
 CREATE TABLE `Ville` (
   `Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Adresse` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Code_postal` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Mail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Numero` char(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `Numero` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Latitude` float(10,6) NOT NULL,
+  `Longitude` float(10,6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `Accueil`;
+CREATE TABLE `Accueil` (
+  `Titre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Contenu` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Units` (`Id`, `Label`, `Unite`, `Symbol`) VALUES
+(1,	'Temperature',	'Degrés Celcius',	'°C'),
+(2,	'Pression',	'Hectopascal',	'Hpa'),
+(3,	'Consommation electrique',	'KiloWatt par heure',	'KW/h'),
+(4,	'Vitesse',	'Kilomètre par heure',	'Km/h'),
+(5,	'Distance',	'Centimètre',	'cm'),
+(6,	'Distance',	'Mètre',	'm'),
+(7,	'Concentration',	'Pied cube',	'cf');

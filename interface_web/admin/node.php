@@ -19,8 +19,8 @@
         Tous les capteurs associés seront également supprimés.
       </div>
       <div class="modal-footer">
-        <a class="btn btn-secondary" href="index.php?step=3">Annuler</a>
-        <a class="btn btn-primary" href="index.php?step=3&action=delNodeOk&id=<?= $_GET['id'] ?>">Supprimer</a>
+        <a class="btn btn-secondary" href="index.php?step=4">Annuler</a>
+        <a class="btn btn-primary" href="index.php?step=4&action=delNodeOk&id=<?= $_GET['id'] ?>">Supprimer</a>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ if (!empty($_GET['action'] ) ){
   if ($_GET["action"] == "delSensor" && !empty($_GET["id"])){
     if (deleteSensor($_GET['id'])){
       echo alert_success("SUCCES !", "Le capteur a bien été supprimé");
-      header('Location: index.php?step=3');
+      header('Location: index.php?step=4');
     }
     else{
       echo alert_error("ERREUR !", "Le capteur n'a pu être supprimé");
@@ -49,7 +49,7 @@ if (!empty($_GET['action'] ) ){
   if ($_GET["action"] == "delNodeOk" && !empty($_GET["id"])){
     if (deleteNode($_GET['id'])){
       echo alert_success("SUCCES !", "Le Node a bien été supprimé");
-      header('Location: index.php?step=3');
+      header('Location: index.php?step=4');
     }
     else{
       echo alert_error("ERREUR !", "Le Node n'a pu être supprimé");
@@ -66,7 +66,7 @@ foreach ($nodeList as $node) {
     <div class="col form-group">
       <h3 class="float-left"><?= $node['Id'] ?> - <?= $node['Nom'] ?></h3>
       <div class="float-right">
-        <a class="btn btn-outline-danger" href="index.php?step=3&action=delNode&id=<?= $node['Id'] ?>" role="button">Supprimer</a>
+        <a class="btn btn-outline-danger" href="index.php?step=4&action=delNode&id=<?= $node['Id'] ?>" role="button">Supprimer</a>
         <a class="btn btn-outline-info" href="addNode.php?id=<?= $node['Id'] ?>">Modifier</a>
       </div>
     </div>
@@ -91,7 +91,7 @@ foreach ($nodeList as $node) {
             <td class="text-center"><?= $sensor['Symbol'] ?></td>
             <td class="text-center">
               <div class="btn-group" role="group" aria-label="Basic example">
-                <a class="text-white btn btn-danger" href="index.php?step=3&action=delSensor&id=<?= $sensor[0] ?>">Supprimer</a>
+                <a class="text-white btn btn-danger" href="index.php?step=4&action=delSensor&id=<?= $sensor[0] ?>">Supprimer</a>
                 <a class="text-white btn btn-info" href="addSensor.php?id=<?= $sensor[0] ?>">Modifier</a>
               </div>
             </td>

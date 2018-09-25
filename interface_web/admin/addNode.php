@@ -28,7 +28,7 @@ if (!empty($_POST['nom']) &&
   if (isset($_GET['id'])){
     if (updateInfosNode($_GET['id'], $_POST['nom'], $_POST['long'], $_POST['lat'])){
       echo alert_success("SUCCES !", "Le node a bien été modifié");
-      header('Location: index.php?step=3');
+      header('Location: index.php?step=4');
     }
     else {
       echo alert_error("ERREUR !", "Le node n'a pas été modifié");
@@ -38,7 +38,7 @@ if (!empty($_POST['nom']) &&
   else {
     if (setInfosNode($_POST['nom'], $_POST['long'], $_POST['lat'], true)){
       echo alert_success("SUCCES !", "Le node a bien été créé");
-      header('Location: index.php?step=3');
+      header('Location: index.php?step=4');
     }
     else {
       echo alert_error("CréerERREUR !", "Le node n'a pas été créé");
@@ -84,7 +84,7 @@ if (!empty($_POST['nom']) &&
       </div>
 
       <div class="float-right">
-        <a class="btn btn-outline-primary btn-lg" href="index.php?step=3">Revenir</a>
+        <a class="btn btn-outline-primary btn-lg" href="index.php?step=4">Revenir</a>
         <button type="submit" class="btn btn-primary btn-lg" name="envoyer"><?= $btn ?> le noeud</button>
       </div>
     </form>

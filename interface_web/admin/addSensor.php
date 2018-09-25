@@ -36,7 +36,7 @@ if (!empty($_POST['nom']) &&
   if (isset($_GET['id'])){
     if (updateInfosSensor($_GET['id'], $_POST['nom'], $_POST['node'], $_POST['unite'])){
       echo alert_success("SUCCES !", "Le capteur a bien été modifié");
-      header('Location: index.php?step=3');
+      header('Location: index.php?step=4');
     }
     else {
       echo alert_error("ERREUR !", "Le capteur n'a pas été modifié");
@@ -46,7 +46,7 @@ if (!empty($_POST['nom']) &&
   else {
     if (setInfosSensor($_POST['nom'], $_POST['node'], $_POST['unite'])){
       echo alert_success("SUCCES !", "Le capteur a bien été créé");
-      header('Location: index.php?step=3');
+      header('Location: index.php?step=4');
     }
     else {
       echo alert_error("ERREUR !", "Le capteur n'a pas été créé");
@@ -117,7 +117,7 @@ if (!empty($_POST['nom']) &&
       </div>
 
       <div class="float-right">
-        <a class="btn btn-outline-primary btn-lg" href="index.php?step=3">Revenir</a>
+        <a class="btn btn-outline-primary btn-lg" href="index.php?step=4">Revenir</a>
         <button type="submit" class="btn btn-primary btn-lg" name="envoyer"><?= $btn ?> le capteur</button>
       </div>
     </form>
