@@ -80,8 +80,85 @@ De retour sur la version Legacy de xctu, le logiciel nous demande maintenant de 
 Au final, avec la carte Arduino MEGA, ou avec la carte Arduino UNO, avec ou sans microcontrôleur, avec les jumpers en mode USB ou xBee, et sur les deux logiciels, le résultat est le même : aucune connexion n'est possible entre le logiciel et le module xBee.
 J'ai également essayé avec un troisième module xBee, qui ne m'avait pas encore servi, et le résultat est resté le même.  
 
-Prochains tests à la réception de l'adaptateur xBee vers USB.
+## xBee USB Adapter
+
+![usb adapter](Images/XBee_14.png)
+
+Unne fois le module xBee installé sur la carte, et la carte connectée au pc, on peux lancer une découverte depuis XCTU :
+
+![bouton découverte](Images/XBee_2.png)
+
+Un appareil USB devrait alors être reconnu :
+
+![bouton découverte](Images/XBee_15.png)
+
+On laisse les paramètres de découverte par défaut avant de cliquer sur le bouton *Finish* :
+
+![bouton découverte](Images/XBee_4.png)
+
+On ajoute ensuite le module trouvé par XCTU *Add selected devices* :
+
+![bouton découverte](Images/XBee_16.png)
+
+En cliquant sur le module à gauche de l'écran, une lecture des paramètres se lance automatiquement (elle peut être forcée à l'aide du bouton *Read* ) :
+
+![bouton découverte](Images/XBee_6.png)
+
+La partie droite de l'écran présenta alors les différents paramètres du module qu'il est possible d'éditer :
+
+![bouton découverte](Images/XBee_17.png)
+
+Il est possible de sauvegarder ou de charger les paramètres du xBee à partir du menu "Profile"
+
+![bouton Profil](Images/XBee_18.png)
+
+J'ai réinitialisé les modules à leur configuration d'usine à l'aide du bouton Default
+
+![bouton Default](Images/XBee_19.png)
+
+Pour établir une connexion entre deux modules xBee, ils doivent avoir le même canal (**CH** Channel) et la même adresse pan (Personal Area Network) (**ID** PAN ID).
+
+Il est possible de conserver des adresses (**MY** 16-bit Source Adress) identique pour les deux modules, la transmission s'effectuera alors en broadcast.
+
+Il est également possible de paramétrer des adresses spécifiques pour envoyer le message à un destinataire précis.
+Pour cela, il faut faire correspondre les numéros de série haut et bas du destinataire (**SH** Serial Number High et **SL** Serial Number Low) avec les adresse de destination de l'expéditeur (**DH** Destination adress High et **DL** Destination Adress Low).
 
 ## Test envoi / réception
 
-/
+L'envoi s'effectue avec une connexion série :
+
+Code pour l'émetteur :
+
+```C
+int timer = 0;
+
+void setup()
+{
+Serial.begin (9600);
+}
+
+void loop()
+{
+Serial.println("Message : "+String(timer)+" Sec.");
+timer++;
+delay(1000); // Attendre 1s
+}
+```
+
+Code pour le Récepteur :
+
+```C
+int incomingByte = 0;   
+
+void setup() {
+        Serial.begin(9600);
+}
+
+void loop() {
+
+        if (Serial.available() > 0) {
+                incomingByte = Serial.read();
+                Serial.print(char(incomingByte));
+        }
+}
+```
