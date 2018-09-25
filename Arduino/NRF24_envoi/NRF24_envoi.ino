@@ -12,24 +12,24 @@
 RF24 radio(7, 8); // CE, CSN
 const byte address[6] = "00001";
 void setup() {
-  Serial.begin(9600);
+  // Initialisation du module radio
   radio.begin();
   radio.openWritingPipe(address);
   radio.setPALevel(RF24_PA_MIN);
   radio.stopListening();
+
+  Serial.begin(9600);
+
 }
 
-char text[10] = "";
-int num = 0;
+int timer = 0;
+char text[50];
 
 void loop() {
-  for (int i=0; i<sizeof(text); i++){
-    Serial.print(i);
-    Serial.println(text[i]);
-  }
-  String(num).toCharArray(text,2);
-  num = !num;
+  String str = "Timer : "+String(timer)+" sec.";
+  str.toCharArray(text, 20);
   radio.write(&text, sizeof(text));
-  Serial.println(text);
-  delay(1000);
+
+  delay(500);
+  timer ++;
 }

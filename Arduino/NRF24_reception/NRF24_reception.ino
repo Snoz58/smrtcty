@@ -12,7 +12,6 @@
 RF24 radio(7, 8); // CE, CSN
 const byte address[6] = "00001";
 void setup() {
-  pinMode(A1, OUTPUT); 
   Serial.begin(9600);
   radio.begin();
   radio.openReadingPipe(0, address);
@@ -23,14 +22,6 @@ void loop() {
   if (radio.available()) {
     char text[32] = "";
     radio.read(&text, sizeof(text));
-    if (text[0] == '1'){
-      Serial.println("LEDON");
-      digitalWrite(A1, HIGH);
-    }
-    else {
-      Serial.println("LEDOFF");
-      digitalWrite(A1, LOW);
-    }
     Serial.println(text);
   }
 }

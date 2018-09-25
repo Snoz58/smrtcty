@@ -64,7 +64,7 @@ void setup()
   rf95.setTxPower(23, false);
 }
 
-char buf2 = "";
+char buf2;
 
 void loop()
 {
@@ -74,26 +74,28 @@ void loop()
     uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
     uint8_t len = sizeof(buf);
 
+  Serial.print ("test");
     if (rf95.recv(buf, &len))
     {
-      digitalWrite(LED, HIGH);
+   //   Serial.println((char*)buf);
+   //   digitalWrite(LED, HIGH);
       // RH_RF95::printBuffer("Received: ", buf, len);
       //Serial.print("Got: ");
       //Serial.println((char*)buf);
-      Serial.println((char*)buf);
+   //   Serial.println((char*)buf);
       
       Serial.println("-_-_-_-_-_-_-_-_-_-_-_-_-");
       
-      Serial.println((char)buf[0]); 
-      if((char)buf[0] == '1'){
-        Serial.println("LEDON");
-        // Allumage de la led à revoir sur un autre pin (13 déjà utilisé)
-        digitalWrite(LED_BUILTIN, HIGH);
-      }
-      else{
-        Serial.println("LEDOFF");
-        //digitalWrite(LED_BUILTIN, LOW);
-      }
+//      Serial.println((char)buf[0]); 
+//      if((char)buf[0] == '1'){
+//        Serial.println("LEDON");
+//        // Allumage de la led à revoir sur un autre pin (13 déjà utilisé)
+//        digitalWrite(LED_BUILTIN, HIGH);
+//      }
+//      else{
+//        Serial.println("LEDOFF");
+//        //digitalWrite(LED_BUILTIN, LOW);
+//      }
 
     }
     

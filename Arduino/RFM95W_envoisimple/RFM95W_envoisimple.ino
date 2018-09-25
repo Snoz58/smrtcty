@@ -62,25 +62,28 @@ void setup()
 }
 
 
-int num=1;
+int num=0;
 
 void loop()
 {
   delay(1000); // Wait 1 second between transmits, could also 'sleep' here!
-  Serial.println("Transmitting..."); // Send a message to rf95_server
+  // Serial.println("Transmitting..."); // Send a message to rf95_server
     
-  Serial.println("Sending...");
-  delay(10);
+  // Serial.println("Sending...");
+  // delay(10);
 
   num = !num;
   char numLettre[10]="";
   itoa (num, numLettre, 10);
-  Serial.println(numLettre);
   
-  rf95.send((uint8_t *)numLettre, 20);
+  Serial.println(numLettre);
+  // "Message : "+String(timer)+" Sec."
+  rf95.send(char("Message : ")+(uint8_t *)numLettre+char(" Sec."), 50);
 
   delay(10);
   rf95.waitPacketSent();
 
+  num ++;
 
+ 
 }
