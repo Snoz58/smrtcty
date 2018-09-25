@@ -11,7 +11,7 @@ if (isset($_GET["node"]) &&
       if (isset($_GET["debut"])){ $debut = $_GET["debut"]; }
       else { $debut = "2000-01-01"; }
 
-      if (isset($_GET["fin"])){ $debut = $_GET["fin"]; }
+      if (isset($_GET["fin"])){ $fin = $_GET["fin"]; }
       else { $fin = date('Y-m-d'); }
 
       $values = getSensorValues($node, $sensor, $debut, $fin);

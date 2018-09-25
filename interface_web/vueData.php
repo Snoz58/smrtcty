@@ -14,13 +14,19 @@
 
   $labels = "";
   $data = "";
+
+  // Récupération des données choisies ($node et $sensor)
   $values = getSensorValues($node, $sensor, $debut, $fin);
   if (!empty($values)){
     foreach ($values as $variable) {
+      // Conversion et stockage de l'horodatage pour l'abscisse du graphe
       $labels .= "'".convertdate($variable["Date"])."',";
+      // Récuopération des valeurs des capteurs
       $data .= $variable["Value"].",";
     }
 
+    // Les variables $label et $data contiennent deux chaînes de caractère formatées avec une virgune entre chaque donnée
+    // On enlève la dernière virgule de la chaîne
     $labels = substr($labels, 0, -1);
     $data = substr($data, 0, -1);
 
@@ -69,9 +75,9 @@
           Télécharger
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" target="_blank" href="datacsv.php?node=<?= $node ?>&sensor=<?= $sensor ?>">CSV</a>
-          <a class="dropdown-item" target="_blank" href="dataxml.php?node=<?= $node ?>&sensor=<?= $sensor ?>">XML</a>
-          <a class="dropdown-item" id = "downloadImage" target="_blank" href="#" download="donnees_capteur.png" >PNG</a>
+          <a class="dropdown-item" target="_blank" href="datacsv.php?node=<?= $node ?>&sensor=<?= $sensor ?>&debut=<?= $debut ?>&fin=<?= $fin ?>">CSV</a>
+          <a class="dropdown-item" target="_blank" href="dataxml.php?node=<?= $node ?>&sensor=<?= $sensor ?>&debut=<?= $debut ?>&fin=<?= $fin ?>">XML</a>
+          <a class="dropdown-item" id = "downloadImage" target="_blank" href="#" download="donnees_capteur.png" >Image</a>
         </div>
       </div>
     </div>
@@ -101,7 +107,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div>delete
   </div>
 
   <div class="chart-container">
@@ -110,6 +116,12 @@
 </main>
 
 <script>
+
+var ctx = document.getElementById("canvas").getContext("2d");
+
+ctx.fillStyle = 'rgb(200, 0, 0)';
+ctx.fillRect(10, 10, 50, 50);
+
 
 var lineChartData = {
   fillColor : "#ffff00",
@@ -131,9 +143,45 @@ var lineChartData = {
 		}
 
 function done(){
-  var url=myLine.toBase64Image();
-  ///window.open(myLine.toBase64Image(),'_blank');
+  // génération d'une image à partir du graphique
 
+  // change non-opaque pixels to white
+
+console.log('-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_');
+  var context = document.getElementById('canvas').getContext('2d');
+  var canvas = context.canvas;
+  var imgData = context.getImageData(0,0,canvas.width,canvas.height);
+  var data = imgData.data;
+
+  for(var i=0;i<data.length;i+=4){
+    var transparence = data[i+3];
+
+    if (transparence < 255){
+      // Si le pixel est totalement transparent -> on le passe en blanc
+      // if(transparence==0){
+      //     data[i]=255;
+      //     data[i+1]=255;
+      //     data[i+2]=255;
+      //     data[i+3]=255;
+      // }
+
+      // Si il n'est ni opaque, ni totalement transparent
+      // else {
+      // console.log("Old :"+data[i]);
+      //   data[i]=data[i]*data[i+3]/255;
+      //   data[i+1]=data[i+1]*data[i+3]/255;
+      //   data[i+2]=data[i=2]*data[i+3]/255;
+      //   data[i+3]=255;
+      // }
+    }
+  }
+  //context.putImageData(imgData,0,0);
+
+  var url = myLine.toBase64Image();
+  // var url = imgData.toDataURL();
+
+
+  // window.open(myLine.toBase64Image(),'_blank');
   document.getElementById("downloadImage").href=url;
 }
 var options = {
@@ -146,7 +194,11 @@ var options = {
                 beginAtZero: true
             }
         }]
-    }
+    },
+  chartArea: {
+      backgroundColor: 'rgba(251, 85, 85, 0.4)'
+  }
+
 };
 
 

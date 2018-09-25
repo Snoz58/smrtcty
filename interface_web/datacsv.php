@@ -2,16 +2,18 @@
 
 require("modele.php");
 
+// Récupération des infos sur les données à récupérer
 if (isset($_GET["node"]) &&
     isset($_GET["sensor"])){
 
       $node = $_GET["node"];
       $sensor = $_GET["sensor"];
 
-      if (isset($_GET["debut"])){ $debut = $_GET["debut"]; }
+      // Initialisation de dates par défaut si aucune n'est spécifiée
+      if (!empty($_GET["debut"])){ $debut = $_GET["debut"]; }
       else { $debut = "2000-01-01"; }
 
-      if (isset($_GET["fin"])){ $debut = $_GET["fin"]; }
+      if (!empty($_GET["fin"])){ $fin = $_GET["fin"]; }
       else { $fin = date('Y-m-d'); }
 
       $values = getSensorValues($node, $sensor, $debut, $fin);
@@ -28,15 +30,15 @@ if (isset($_GET["node"]) &&
         echo $str;
       }
       else {
-        echo "ERREUR autre";
+        echo "ERREUR aucune données trouvée";
       }
 
     }
 else {
-  echo "ERREUR";
+  echo "ERREUR Node et / ou Capteur non renseignés";
 }
 
-
+// Header et nom du fichier pour le téléchargement
 header('Content-Type: text/csv');
 header('Content-Disposition: filename="donnees.csv"');
 
