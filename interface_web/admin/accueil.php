@@ -38,11 +38,11 @@
   }
 
  ?>
-    <h1>2. Configuration du village : </h1>
+    <h1>3. Configuration de l'accueil : </h1>
 
     <form method="post" action="">
       <div class="form-group">
-        <label for="Titre">Titre</label>
+        <label for="Titre">Titre de la page d'accueil</label>
         <input type="text" class="form-control" id="Titre" name="Titre" value="<?= $titre ?>">
       </div>
 

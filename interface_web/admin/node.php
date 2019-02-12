@@ -1,4 +1,4 @@
-<h1>1. Configuration des noeuds et capteurs : </h1>
+<h1>4. Configuration des noeuds et capteurs : </h1>
 <div class="row">
   <div class="col form-group">
     <a class="btn btn-primary" href="addNode.php" role="button">Ajouter un noeud</a>

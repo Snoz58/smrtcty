@@ -11,6 +11,11 @@
 #include <SPI.h>
 #include <RH_RF95.h>
 
+// Change to 434.0 or other frequency, must match RX's freq!
+#define RF95_FREQ 868.0
+
+// #define RF95_FREQ 915.0
+
 // Singleton instance of the radio driver
 RH_RF95 rf95;
 //RH_RF95 rf95(5, 2); // Rocket Scream Mini Ultra Pro with the RFM95W
@@ -21,6 +26,7 @@ RH_RF95 rf95;
 
 int led = 8;
 
+
 void setup() 
 {
   // Rocket Scream Mini Ultra Pro with the RFM95W only:
@@ -29,12 +35,18 @@ void setup()
 //  digitalWrite(4, HIGH);
 
   pinMode(led, OUTPUT);     
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial) ; // Wait for serial port to be available
   if (!rf95.init())
     Serial.println("init failed");
   else  
     Serial.println("init OK");
+
+  if (!rf95.setFrequency(RF95_FREQ)) {
+    Serial.println("setFrequency failed");
+    while (1);
+  }
+  Serial.print("Set Freq to: "); Serial.println(RF95_FREQ);
   // Defaults after init are 434.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
 
   // The default transmitter power is 13dBm, using PA_BOOST.
@@ -78,6 +90,5 @@ void loop()
     }
     //delay(500);
   }
+
 }
-
-
