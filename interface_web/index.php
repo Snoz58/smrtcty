@@ -10,11 +10,17 @@ try {
     else if ($_GET['action'] == 'data') {
       data();
     }
+    else if ($_GET['action'] == 'compare') {
+      compare();
+    }
     else if ($_GET['action'] == 'accueil') {
       accueil();
     }
+    else if ($_GET['action'] == 'TEST') {
+      TEST();
+    }
     else
-      // throw new Exception("Action non valide");
+      // Cas par défaut --> Accueil
       accueil();
   }
   else {

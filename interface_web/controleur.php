@@ -14,6 +14,14 @@ function data() {
   require 'vueData.php';
 }
 
+function compare() {
+  require 'vueDataCompare.php';
+}
+
+function TEST() {
+  require 'vueDataOld.php';
+}
+
 // Affiche les détails sur un billet
 function billet($idBillet) {
   $billet = getBillet($idBillet);

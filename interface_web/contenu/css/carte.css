@@ -77,6 +77,14 @@ html, body, .map{
 .ol-attribution a{
   color: #fff;
 }
+
+.lienPopUp:hover{
+  color: green;
+  text-decoration: overline;
+  text-decoration: none;
+}
+
+
 /* Croix pour fermer */
 /*
 .ol-popup-closer {

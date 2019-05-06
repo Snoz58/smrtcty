@@ -1,0 +1,68 @@
+<gml:featureMember>
+  <om:OM_Observation gml:id="FR_OBS_b9jf4mi0kt_FR061A_FR34061_5_3">
+    <om:phenomenonTime>
+      <gml:TimePeriod gml:id="FR_OBS_TP_34_FR34061_5_3_2019-03-05-00">
+      <gml:beginPosition>2019-03-05T00:00:00+00:00</gml:beginPosition>
+      <gml:endPosition>2019-03-06T00:00:00+00:00</gml:endPosition>
+    </gml:TimePeriod>
+  </om:phenomenonTime>
+  <om:resultTime>
+    <gml:TimeInstant gml:id="FR_OBS_TI_34_FR34061_5_3_2019-03-05-065352">
+      <gml:timePosition>2019-03-05T06:53:52+00:00</gml:timePosition>
+    </gml:TimeInstant>
+  </om:resultTime>
+  <om:procedure xlink:href="FR.LCSQA-INERIS.AQ/SPP-FR_670_BETA_BAM1020heated"/>
+  <om:parameter>
+    <om:NamedValue>
+      <om:name xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/processparameter/AssessmentType"/>
+      <om:value xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/1"/>
+    </om:NamedValue>
+  </om:parameter>
+  <om:parameter>
+    <om:NamedValue>
+      <om:name xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/processparameter/SamplingPoint"/>
+      <om:value xlink:href="FR.LCSQA-INERIS.AQ/SPO-FR34061_5"/>
+    </om:NamedValue>
+  </om:parameter>
+  <om:observedProperty xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5"/>
+  <om:featureOfInterest xlink:href="FR.LCSQA-INERIS.AQ/SAM-FR34061_5"/>
+  <om:result>
+    <swe:DataArray>
+      <swe:elementCount>
+        <swe:Count>
+          <swe:value>6</swe:value>
+        </swe:Count>
+        </swe:elementCount>
+        <swe:elementType name="FixedObservations">
+          <swe:DataRecord>
+            <swe:field name="StartTime">
+              <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+                <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+              </swe:Time>
+            </swe:field>
+            <swe:field name="EndTime">
+              <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+                <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+              </swe:Time>
+            </swe:field>
+            <swe:field name="Verification">
+              <swe:Category definition="http://dd.eionet.europa.eu/vocabulary/aq/observationverification"/>
+            </swe:field>
+            <swe:field name="Validity">
+              <swe:Category definition="http://dd.eionet.europa.eu/vocabulary/aq/observationvalidity"/>
+            </swe:field>
+            <swe:field name="Value">
+              <swe:Quantity definition="http://dd.eionet.europa.eu/vocabulary/aq/primaryObservation/hour">
+                <swe:uom xlink:href="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3"/>
+              </swe:Quantity>
+            </swe:field>
+          </swe:DataRecord>
+        </swe:elementType>
+        <swe:encoding>
+          <swe:TextEncoding blockSeparator="@@" decimalSeparator="." tokenSeparator=","/>
+        </swe:encoding>
+        <swe:values>2019-03-05T00:00:00+00:00,2019-03-05T01:00:00+00:00,3,1,4.5@@2019-03-05T01:00:00+00:00,2019-03-05T02:00:00+00:00,3,1,7.2@@2019-03-05T02:00:00+00:00,2019-03-05T03:00:00+00:00,3,1,13.2@@2019-03-05T03:00:00+00:00,2019-03-05T04:00:00+00:00,3,1,11.4@@2019-03-05T04:00:00+00:00,2019-03-05T05:00:00+00:00,3,1,12.4@@2019-03-05T05:00:00+00:00,2019-03-05T06:00:00+00:00,3,1,15.9@@</swe:values>
+      </swe:DataArray>
+    </om:result>
+  </om:OM_Observation>
+</gml:featureMember>

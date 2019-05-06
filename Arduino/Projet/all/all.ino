@@ -2,7 +2,7 @@
 #include "Seeed_BMP280.h"
 #include <Wire.h>
 
-#define DHTPIN A1
+#define DHTPIN A3
 #define DHTTYPE DHT22 
 
 
@@ -34,27 +34,24 @@ void loop() {
   float t = dht.readTemperature();
   float hic = dht.computeHeatIndex(t, h, false);
 
-Serial.print("Grove : ");
-Serial.print(t2);
-Serial.print(" | DHT : ");
-Serial.print(t);
-Serial.print(" | OneWire : ");
-Serial.println("");
 
-//  Serial.print("Température : ");
-//  Serial.println(t2);
-  
-//  Serial.print("Pression : ");
-//  Serial.println(p);
+  Serial.print("Température : ");
+  Serial.println(t2);
+ 
+  Serial.print("Pression : ");
+  Serial.println(p);
 
 
-//  Serial.print("Humidité : ");
-//  Serial.println(h);
+  Serial.print("Humidité : ");
+  Serial.println(h);
 
-//  Serial.print("Temperature : ");
-//  Serial.println(t);
+  Serial.print("Temperature : ");
+  Serial.println(t);
 
-//  Serial.print("Ressenti : ");
-//  Serial.println(hic);
+  Serial.print("Ressenti : ");
+  Serial.println(hic);
+
+    Serial.print("-_-_-_-_-_-_-");
+
 
 }

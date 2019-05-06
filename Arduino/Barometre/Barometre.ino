@@ -23,7 +23,7 @@ void loop()
   Serial.print(t);
   
   Serial.print("Pressure: ");
-  Serial.print(p);
+  Serial.println(p);
   
 
   delay(1000);

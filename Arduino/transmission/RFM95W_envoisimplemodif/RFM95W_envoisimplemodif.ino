@@ -78,7 +78,7 @@ void loop()
   
   String envoistr = "Message : "+String(timer)+" Sec.";
   envoistr.toCharArray(&envoi , 20);
-  
+  Serial.println(envoi);
 //  rf95.send(char("Message : ")+(uint8_t *)numLettre+char(" Sec."), 50);
   rf95.send((uint8_t *)&envoi, 20);
 

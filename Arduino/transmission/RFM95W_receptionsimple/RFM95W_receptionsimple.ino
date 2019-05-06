@@ -80,8 +80,8 @@ void loop()
    //   Serial.println((char*)buf);
    //   digitalWrite(LED, HIGH);
       // RH_RF95::printBuffer("Received: ", buf, len);
-      //Serial.print("Got: ");
-      //Serial.println((char*)buf);
+      Serial.print("Got: ");
+      Serial.println((char*)buf);
    //   Serial.println((char*)buf);
       
       Serial.println("-_-_-_-_-_-_-_-_-_-_-_-_-");
@@ -105,4 +105,5 @@ void loop()
     }
 
   }
+
 }

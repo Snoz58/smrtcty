@@ -60,20 +60,25 @@ var overlay = new ol.Overlay({
 
    map.on('click', function(e) {
       let markup = '';
+      let contenu = '';
       var coordonnes;
       map.forEachFeatureAtPixel(e.pixel, function(feature) {
-        const properties = feature.getProperties();
-        markup += `${markup && '<hr>'}<table>`;
+        const properties = feature.getProperties(); // Propriétés issues du fichier "cartejson.php"
+
+        // ancienne affichage de la popup
+        // markup += `${markup && '<hr>'}<table>`;
         for (const property in properties) {
             if (property != "geometry"){
-              markup += `<tr><th>${property}</th><td>${properties[property]}</td></tr>`;
+              markup += `<tr><th>lol${property}</th><td>${properties[property]}</td></tr>`;
             }
         }
-        markup += '</table>';
+        // markup += '</table>';
+
+        contenu = '<a href="'+properties["Lien"]+'"> <div class="lienPopUp"> Point de captage "<strong>'+properties["Name"]+'</strong>"<br /> Cliquez sur cette bulle pour accéder aux donnéess </div> </a>';
         coordonnes = feature.getGeometry().getCoordinates();
       }, {hitTolerance: 1});
       if (markup) {
-        document.getElementById('popup-content').innerHTML = markup;
+        document.getElementById('popup-content').innerHTML = contenu;
         overlay.setPosition(coordonnes);
       }
       else {

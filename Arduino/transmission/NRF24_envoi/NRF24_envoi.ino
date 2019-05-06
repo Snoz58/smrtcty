@@ -9,7 +9,8 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-RF24 radio(7, 8); // CE, CSN
+//RF24 radio(7, 8); // CE, CSN
+RF24 radio(9, 10);
 const byte address[6] = "00001";
 void setup() {
   // Initialisation du module radio
@@ -29,7 +30,6 @@ void loop() {
   String str = "Timer : "+String(timer)+" sec.";
   str.toCharArray(text, 20);
   radio.write(&text, sizeof(text));
-
   delay(500);
   timer ++;
 }
