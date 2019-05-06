@@ -1,4 +1,4 @@
--- Adminer 4.5.0 MySQL dump
+-- Adminer 4.6.3 MySQL dump
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -6,6 +6,94 @@ SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS `Accueil`;
+CREATE TABLE `Accueil` (
+  `Titre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Contenu` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Accueil` (`Titre`, `Contenu`) VALUES
+('Interface du projet \"SmartVillage\"',	'Accessible à tous, cette  application permet le suivi des différents capteurs du dispositif de manière simplifiée');
+
+
+
+DROP TABLE IF EXISTS `Node`;
+CREATE TABLE `Node` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Lat` float(10,6) NOT NULL,
+  `Long` float(10,6) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Node` (`Id`, `Nom`, `Lat`, `Long`) VALUES
+(1,	'Jeanne d\'Arc',	46.989040,	3.153046),
+(2,	'Conseil ',	46.993881,	3.163317),
+(3,	'Place Carnot',	46.988720,	3.157285);
+
+DROP TABLE IF EXISTS `Sensor`;
+CREATE TABLE `Sensor` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fk_IdNode` int(11) NOT NULL,
+  `fk_IdUnits` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `fk_IdNode` (`fk_IdNode`),
+  KEY `fk_IdUnits` (`fk_IdUnits`),
+  CONSTRAINT `Sensor_ibfk_1` FOREIGN KEY (`fk_IdNode`) REFERENCES `Node` (`Id`),
+  CONSTRAINT `Sensor_ibfk_2` FOREIGN KEY (`fk_IdUnits`) REFERENCES `Units` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Sensor` (`Id`, `Nom`, `fk_IdNode`, `fk_IdUnits`) VALUES
+(0,	'Température extérieure',	1,	1),
+(2,	'Humidité',	1,	8),
+(3,	'Pression atmosphérique',	2,	2),
+(4,	'Température de l\'eau',	2,	1),
+(5,	'Température extérieure',	2,	1);
+
+DROP TABLE IF EXISTS `Units`;
+CREATE TABLE `Units` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Label` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Unite` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Symbol` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Units` (`Id`, `Label`, `Unite`, `Symbol`) VALUES
+(1,	'Temperature',	'Degrés Celcius',	'°C'),
+(2,	'Pression',	'Hectopascal',	'Hpa'),
+(3,	'Consommation electrique',	'KiloWatt par heure',	'KW/h'),
+(4,	'Vitesse',	'Kilomètre par heure',	'Km/h'),
+(5,	'Distance',	'Centimètre',	'cm'),
+(6,	'Distance',	'Mètre',	'm'),
+(7,	'Concentration',	'Pied cube',	'cf'),
+(8,	'Humidité',	'pourcentage',	'%');
+
+DROP TABLE IF EXISTS `Utilisateurs`;
+CREATE TABLE `Utilisateurs` (
+  `Login` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Role` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Utilisateurs` (`Login`, `Password`, `Role`) VALUES
+('',	'',	'');
+
+DROP TABLE IF EXISTS `Ville`;
+CREATE TABLE `Ville` (
+  `Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Adresse` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Code postal` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Mail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Numéro` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Latitude` float(10,6) NOT NULL,
+  `Longitude` float(10,6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Ville` (`Nom`, `Adresse`, `Code postal`, `Mail`, `Numéro`, `Latitude`, `Longitude`) VALUES
+('Village',	'adresse',	'12345',	'12345',	'0000000000',	12.500000,	46.889999);
 
 DROP TABLE IF EXISTS `Data`;
 CREATE TABLE `Data` (
@@ -52,71 +140,126 @@ INSERT INTO `Data` (`Id`, `Date`, `Value`, `fk_IdNode`, `fk_IdUnits`, `fk_IdSens
 (64,	'2018-04-27 09:00:00',	28,	1,	4,	0),
 (65,	'2018-04-28 09:00:00',	20,	1,	4,	0),
 (66,	'2018-04-29 09:00:00',	26,	1,	4,	0),
-(67,	'2018-04-30 09:00:00',	21,	1,	4,	0);
+(67,	'2018-04-30 09:00:00',	21,	1,	4,	0),
+(68,	'2018-04-01 09:00:00',	10,	2,	1,	4),
+(69,	'2018-04-02 09:00:00',	11,	2,	1,	4),
+(70,	'2018-04-03 09:00:00',	11,	2,	1,	4),
+(71,	'2018-04-04 09:00:00',	11,	2,	1,	4),
+(72,	'2018-04-05 09:00:00',	11,	2,	1,	4),
+(73,	'2018-04-06 09:00:00',	11,	2,	1,	4),
+(74,	'2018-04-07 09:00:00',	11,	2,	1,	4),
+(75,	'2018-04-08 09:00:00',	12,	2,	1,	4),
+(76,	'2018-04-09 09:00:00',	13,	2,	1,	4),
+(77,	'2018-04-10 09:00:00',	13,	2,	1,	4),
+(78,	'2018-04-11 09:00:00',	12,	2,	1,	4),
+(79,	'2018-04-12 09:00:00',	11,	2,	1,	4),
+(80,	'2018-04-13 09:00:00',	10,	2,	1,	4),
+(81,	'2018-04-14 09:00:00',	9,	2,	1,	4),
+(82,	'2018-04-15 09:00:00',	9,	2,	1,	4),
+(83,	'2018-04-16 09:00:00',	9,	2,	1,	4),
+(84,	'2018-04-17 09:00:00',	10,	2,	1,	4),
+(85,	'2018-04-18 09:00:00',	10,	2,	1,	4),
+(86,	'2018-04-19 09:00:00',	10,	2,	1,	4),
+(87,	'2018-04-20 09:00:00',	10,	2,	1,	4),
+(88,	'2018-04-21 09:00:00',	10,	2,	1,	4),
+(89,	'2018-04-22 09:00:00',	11,	2,	1,	4),
+(90,	'2018-04-23 09:00:00',	12,	2,	1,	4),
+(91,	'2018-04-24 09:00:00',	11,	2,	1,	4),
+(92,	'2018-04-25 09:00:00',	10,	2,	1,	4),
+(93,	'2018-04-26 09:00:00',	10,	2,	1,	4),
+(94,	'2018-04-27 09:00:00',	10,	2,	1,	4),
+(95,	'2018-04-28 09:00:00',	10,	2,	1,	4),
+(96,	'2018-04-29 09:00:00',	10,	2,	1,	4),
+(97,	'2018-04-30 09:00:00',	10,	2,	1,	4),
+(98,	'2018-04-01 09:00:00',	10,	2,	1,	5),
+(99,	'2018-04-02 09:00:00',	11,	2,	1,	5),
+(100,	'2018-04-03 09:00:00',	13,	2,	1,	5),
+(101,	'2018-04-04 09:00:00',	13,	2,	1,	5),
+(102,	'2018-04-05 09:00:00',	15,	2,	1,	5),
+(103,	'2018-04-06 09:00:00',	16,	2,	1,	5),
+(104,	'2018-04-07 09:00:00',	17,	2,	1,	5),
+(105,	'2018-04-08 09:00:00',	19,	2,	1,	5),
+(106,	'2018-04-09 09:00:00',	19,	2,	1,	5),
+(107,	'2018-04-10 09:00:00',	18,	2,	1,	5),
+(108,	'2018-04-11 09:00:00',	18,	2,	1,	5),
+(109,	'2018-04-12 09:00:00',	19,	2,	1,	5),
+(110,	'2018-04-13 09:00:00',	18,	2,	1,	5),
+(111,	'2018-04-14 09:00:00',	16,	2,	1,	5),
+(112,	'2018-04-15 09:00:00',	14,	2,	1,	5),
+(113,	'2018-04-16 09:00:00',	16,	2,	1,	5),
+(114,	'2018-04-17 09:00:00',	15,	2,	1,	5),
+(115,	'2018-04-18 09:00:00',	14,	2,	1,	5),
+(116,	'2018-04-19 09:00:00',	13,	2,	1,	5),
+(117,	'2018-04-20 09:00:00',	12,	2,	1,	5),
+(118,	'2018-04-21 09:00:00',	12,	2,	1,	5),
+(119,	'2018-04-22 09:00:00',	11,	2,	1,	5),
+(120,	'2018-04-23 09:00:00',	9,	2,	1,	5),
+(121,	'2018-04-24 09:00:00',	11,	2,	1,	5),
+(122,	'2018-04-25 09:00:00',	9,	2,	1,	5),
+(123,	'2018-04-26 09:00:00',	11,	2,	1,	5),
+(124,	'2018-04-27 09:00:00',	13,	2,	1,	5),
+(125,	'2018-04-28 09:00:00',	15,	2,	1,	5),
+(126,	'2018-04-29 09:00:00',	16,	2,	1,	5),
+(127,	'2018-04-30 09:00:00',	14,	2,	1,	5),
+(128,	'2018-04-01 09:00:00',	1033,	2,	2,	3),
+(129,	'2018-04-02 09:00:00',	1033,	2,	2,	3),
+(130,	'2018-04-03 09:00:00',	1033,	2,	2,	3),
+(131,	'2018-04-04 09:00:00',	1034,	2,	2,	3),
+(132,	'2018-04-05 09:00:00',	1035,	2,	2,	3),
+(133,	'2018-04-06 09:00:00',	1035,	2,	2,	3),
+(134,	'2018-04-07 09:00:00',	1035,	2,	2,	3),
+(135,	'2018-04-08 09:00:00',	1035,	2,	2,	3),
+(136,	'2018-04-09 09:00:00',	1035,	2,	2,	3),
+(137,	'2018-04-10 09:00:00',	1034,	2,	2,	3),
+(138,	'2018-04-11 09:00:00',	1033,	2,	2,	3),
+(139,	'2018-04-12 09:00:00',	1033,	2,	2,	3),
+(140,	'2018-04-13 09:00:00',	1033,	2,	2,	3),
+(141,	'2018-04-14 09:00:00',	1032,	2,	2,	3),
+(142,	'2018-04-15 09:00:00',	1032,	2,	2,	3),
+(143,	'2018-04-16 09:00:00',	1031,	2,	2,	3),
+(144,	'2018-04-17 09:00:00',	1031,	2,	2,	3),
+(145,	'2018-04-18 09:00:00',	1031,	2,	2,	3),
+(146,	'2018-04-19 09:00:00',	1031,	2,	2,	3),
+(147,	'2018-04-20 09:00:00',	1031,	2,	2,	3),
+(148,	'2018-04-21 09:00:00',	1031,	2,	2,	3),
+(149,	'2018-04-22 09:00:00',	1032,	2,	2,	3),
+(150,	'2018-04-23 09:00:00',	1032,	2,	2,	3),
+(151,	'2018-04-24 09:00:00',	1031,	2,	2,	3),
+(152,	'2018-04-25 09:00:00',	1031,	2,	2,	3),
+(153,	'2018-04-26 09:00:00',	1031,	2,	2,	3),
+(154,	'2018-04-27 09:00:00',	1030,	2,	2,	3),
+(155,	'2018-04-28 09:00:00',	1029,	2,	2,	3),
+(156,	'2018-04-29 09:00:00',	1029,	2,	2,	3),
+(157,	'2018-04-30 09:00:00',	1028,	2,	2,	3),
+(158,	'2018-04-01 09:00:00',	50,	1,	8,	2),
+(159,	'2018-04-02 09:00:00',	46,	1,	8,	2),
+(160,	'2018-04-03 09:00:00',	45,	1,	8,	2),
+(161,	'2018-04-04 09:00:00',	41,	1,	8,	2),
+(162,	'2018-04-05 09:00:00',	50,	1,	8,	2),
+(163,	'2018-04-06 09:00:00',	53,	1,	8,	2),
+(164,	'2018-04-07 09:00:00',	45,	1,	8,	2),
+(165,	'2018-04-08 09:00:00',	45,	1,	8,	2),
+(166,	'2018-04-09 09:00:00',	47,	1,	8,	2),
+(167,	'2018-04-10 09:00:00',	51,	1,	8,	2),
+(168,	'2018-04-11 09:00:00',	51,	1,	8,	2),
+(169,	'2018-04-12 09:00:00',	50,	1,	8,	2),
+(170,	'2018-04-13 09:00:00',	55,	1,	8,	2),
+(171,	'2018-04-14 09:00:00',	51,	1,	8,	2),
+(172,	'2018-04-15 09:00:00',	43,	1,	8,	2),
+(173,	'2018-04-16 09:00:00',	46,	1,	8,	2),
+(174,	'2018-04-17 09:00:00',	46,	1,	8,	2),
+(175,	'2018-04-18 09:00:00',	44,	1,	8,	2),
+(176,	'2018-04-19 09:00:00',	34,	1,	8,	2),
+(177,	'2018-04-20 09:00:00',	38,	1,	8,	2),
+(178,	'2018-04-21 09:00:00',	34,	1,	8,	2),
+(179,	'2018-04-22 09:00:00',	33,	1,	8,	2),
+(180,	'2018-04-23 09:00:00',	25,	1,	8,	2),
+(181,	'2018-04-24 09:00:00',	32,	1,	8,	2),
+(182,	'2018-04-25 09:00:00',	37,	1,	8,	2),
+(183,	'2018-04-26 09:00:00',	40,	1,	8,	2),
+(184,	'2018-04-27 09:00:00',	46,	1,	8,	2),
+(185,	'2018-04-28 09:00:00',	38,	1,	8,	2),
+(186,	'2018-04-29 09:00:00',	28,	1,	8,	2),
+(187,	'2018-04-30 09:00:00',	25,	1,	8,	2);
 
-DROP TABLE IF EXISTS `Node`;
-CREATE TABLE `Node` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Lat` float(10,6) NOT NULL,
-  `Long` float(10,6) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `Node` (`Id`, `Nom`, `Lat`, `Long`) VALUES
-(1,	'Jeanne d\'Arc',	46.989040,	3.153046),
-(2,	'Conseil ',	46.993881,	3.163317),
-(3,	'Place Carnot',	46.988720,	3.157285);
-
-DROP TABLE IF EXISTS `Sensor`;
-CREATE TABLE `Sensor` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fk_IdNode` int(11) NOT NULL,
-  `fk_IdUnits` int(11) NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `fk_IdNode` (`fk_IdNode`),
-  KEY `fk_IdUnits` (`fk_IdUnits`),
-  CONSTRAINT `Sensor_ibfk_1` FOREIGN KEY (`fk_IdNode`) REFERENCES `Node` (`Id`),
-  CONSTRAINT `Sensor_ibfk_2` FOREIGN KEY (`fk_IdUnits`) REFERENCES `Units` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `Sensor` (`Id`, `Nom`, `fk_IdNode`, `fk_IdUnits`) VALUES
-(0,	'az',	1,	1);
-
-DROP TABLE IF EXISTS `Units`;
-CREATE TABLE `Units` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Label` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Unite` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Symbol` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `Units` (`Id`, `Label`, `Unite`, `Symbol`) VALUES
-(1,	'Temperature',	'Degrés Celcius',	'°C'),
-(2,	'Pression',	'Hectopascal',	'Hpa'),
-(3,	'Consommation electrique',	'KiloWatt par heure',	'KW/h'),
-(4,	'Vitesse',	'Kilomètre par heure',	'Km/h');
-
-DROP TABLE IF EXISTS `Utilisateurs`;
-CREATE TABLE `Utilisateurs` (
-  `Login` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Role` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `Utilisateurs` (`Login`, `Password`, `Role`) VALUES
-('',	'',	'');
-
-DROP TABLE IF EXISTS `Ville`;
-CREATE TABLE `Ville` (
-  `Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Adresse` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Code postal` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Mail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Numéro` char(10) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
--- 2018-06-28 13:55:29
+-- 2019-05-06 11:50:04
