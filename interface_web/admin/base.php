@@ -8,8 +8,8 @@ if (isset($_POST["envoyer"])){
 
   //test des champs du formulaire
   if (!empty($_POST["user"]) &&
-      !empty($_POST["host"]) &&
-      !empty($_POST["password"])){
+	  //!empty($_POST["password"]) &&
+      !empty($_POST["host"])) {
 
     if($fichier = fopen('bddconnexion.php', 'w+')){
 
@@ -26,7 +26,7 @@ if (isset($_POST["envoyer"])){
         echo alert_success("SUCCES !", "La base a bien été créée");
         if (initdatabase()){
           echo alert_success("SUCCES !", "La base a bien été initialisée");
-          header('Location: index.php?step=2');
+          //header('Location: index.php?step=2');
         }
         else {
           echo alert_error("ERREUR !", "Erreur lors de l'initialisation de la base");

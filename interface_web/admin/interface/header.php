@@ -1,10 +1,16 @@
 <?php
 
+
 // état du menu pour les différentes étapes
 $state1 = "disabled";
 $state2 = "disabled";
 $state3 = "disabled";
 $state4 = "disabled";
+
+
+if (!isset($_GET['step'])){
+  $_GET['step'] = 1;
+}
 
 switch ($_GET['step']){
   case 1 :
@@ -31,6 +37,12 @@ switch ($_GET['step']){
     $state3 = "";
     $state4 = "active";
     break;
+   default :
+    $state1 = "active";
+    $state2 = "disabled";
+    $state3 = "disabled";
+    $state3 = "disabled"; 
+
 }
 
 ?>

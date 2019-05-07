@@ -1,6 +1,5 @@
 <?php
-
-  // Préremplissage du formulaire avec les informations de la base de donnée
+  //Préremplissage du formulaire avec les informations de la base de donnée
   $infosVillage = getInfosVillage();
 
   $nom = $infosVillage["Nom"];
@@ -14,7 +13,7 @@
 
   // Si le formulaire à été envoyé -> insertion dans la base
   if (isset($_POST["envoyer"])){
-
+echo 'ENVOYE';
     //test des champs du formulaire
     if (!empty($_POST["Nom"]) &&
         !empty($_POST["Rue"]) &&
@@ -24,6 +23,7 @@
 
       // Test si le village est déjà renseigné --> update
       if (!empty($nom)){
+		  echo 'UPDATE';
         if (updateInfosVillage($_POST["Nom"], $_POST["Rue"], $_POST["Cp"], $_POST["Mail"], $_POST["Telephone"], $_POST["Latitude"], $_POST["Longitude"])){
           echo alert_success("","Les informations ont bien été mises à jour");
           header('Location: index.php?step=3');
@@ -34,6 +34,7 @@
       
       // sinon nouveau --> insert
       else {
+		echo 'SET';
         if (setInfosVillage($_POST["Nom"], $_POST["Rue"], $_POST["Cp"], $_POST["Mail"], $_POST["Telephone"], $_POST["Latitude"], $_POST["Longitude"])){
           echo alert_success("","Les informations ont bien été mises à jour");
           header('Location: index.php?step=3');

@@ -32,6 +32,27 @@ INSERT INTO `Node` (`Id`, `Nom`, `Lat`, `Long`) VALUES
 (2,	'Conseil ',	46.993881,	3.163317),
 (3,	'Place Carnot',	46.988720,	3.157285);
 
+
+DROP TABLE IF EXISTS `Units`;
+CREATE TABLE `Units` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Label` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Unite` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Symbol` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `Units` (`Id`, `Label`, `Unite`, `Symbol`) VALUES
+(1,	'Temperature',	'Degrés Celcius',	'°C'),
+(2,	'Pression',	'Hectopascal',	'Hpa'),
+(3,	'Consommation electrique',	'KiloWatt par heure',	'KW/h'),
+(4,	'Vitesse',	'Kilomètre par heure',	'Km/h'),
+(5,	'Distance',	'Centimètre',	'cm'),
+(6,	'Distance',	'Mètre',	'm'),
+(7,	'Concentration',	'Pied cube',	'cf'),
+(8,	'Humidité',	'pourcentage',	'%');
+
+
 DROP TABLE IF EXISTS `Sensor`;
 CREATE TABLE `Sensor` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -52,24 +73,7 @@ INSERT INTO `Sensor` (`Id`, `Nom`, `fk_IdNode`, `fk_IdUnits`) VALUES
 (4,	'Température de l\'eau',	2,	1),
 (5,	'Température extérieure',	2,	1);
 
-DROP TABLE IF EXISTS `Units`;
-CREATE TABLE `Units` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Label` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Unite` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Symbol` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `Units` (`Id`, `Label`, `Unite`, `Symbol`) VALUES
-(1,	'Temperature',	'Degrés Celcius',	'°C'),
-(2,	'Pression',	'Hectopascal',	'Hpa'),
-(3,	'Consommation electrique',	'KiloWatt par heure',	'KW/h'),
-(4,	'Vitesse',	'Kilomètre par heure',	'Km/h'),
-(5,	'Distance',	'Centimètre',	'cm'),
-(6,	'Distance',	'Mètre',	'm'),
-(7,	'Concentration',	'Pied cube',	'cf'),
-(8,	'Humidité',	'pourcentage',	'%');
 
 DROP TABLE IF EXISTS `Utilisateurs`;
 CREATE TABLE `Utilisateurs` (
