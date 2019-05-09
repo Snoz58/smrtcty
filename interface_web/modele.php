@@ -8,14 +8,15 @@ ini_set('display_errors', 1);
   const USERNAME="root";
   const PASSWORD="root";
   const HOST="localhost";
-  const DB="SmartVillage";
+  const DB="SmartVillagetest";
 
   function getConnection(){
       $username = USERNAME;
       $password = PASSWORD;
       $host = HOST;
       $db = DB;
-      $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
+      $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password,
+      array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8"));
       return $connection;
   }
   /*--------------------------------------------------------*/
@@ -26,6 +27,7 @@ ini_set('display_errors', 1);
     $bdd = getConnection();
     $accueil = $bdd->query("select * from Accueil");
     return $accueil->fetch();
+
   }
 
   /*--------------------------------------------------------*/
@@ -38,6 +40,11 @@ ini_set('display_errors', 1);
     return $village->fetch();
   }
 
+/*  fonction getCoordonee(){
+    $bdd = getConnection();
+    $CoordVillage = $bdd->query("SELECT ville.latitude,ville.longitude FROM Ville");
+    return $CoordVillage->fetch();
+  } */
   /*--------------------------------------------------------*/
   /*                          Node                          */
   /*--------------------------------------------------------*/
