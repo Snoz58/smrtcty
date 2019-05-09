@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
   const USERNAME="root";
   const PASSWORD="root";
   const HOST="localhost";
-  const DB="SmartVillagetest";
+  const DB="SmartVillage";
 
   function getConnection(){
       $username = USERNAME;
@@ -40,11 +40,11 @@ ini_set('display_errors', 1);
     return $village->fetch();
   }
 
-/*  fonction getCoordonee(){
+  function getCoordonee(){
     $bdd = getConnection();
     $CoordVillage = $bdd->query("SELECT ville.latitude,ville.longitude FROM Ville");
     return $CoordVillage->fetch();
-  } */
+  } 
   /*--------------------------------------------------------*/
   /*                          Node                          */
   /*--------------------------------------------------------*/

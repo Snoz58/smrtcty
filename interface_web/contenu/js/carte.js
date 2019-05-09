@@ -52,8 +52,10 @@ var overlay = new ol.Overlay({
       }
     }),
     view: new ol.View({ // Initialisation de la carte
-      center: ol.proj.transform([3.1534730919589, 46.99032446763], 'EPSG:4326', 'EPSG:3857'),
-      zoom: 14
+      center: ol.proj.transform([longVille, latVille], 'EPSG:4326', 'EPSG:3857'),
+     
+      //zoom:14
+      zoom: 15
     })
   });
 
@@ -74,7 +76,7 @@ var overlay = new ol.Overlay({
         }
         // markup += '</table>';
 
-        contenu = '<a href="'+properties["Lien"]+'"> <div class="lienPopUp"> Point de captage "<strong>'+properties["Name"]+'</strong>"<br /> Cliquez sur cette bulle pour accéder aux donnéess </div> </a>';
+        contenu = '<a href="'+properties["Lien"]+'"> <div class="lienPopUp"> Point de captage "<strong>'+properties["Name"]+'</strong>"<br /> Cliquez sur cette bulle pour accéder aux données </div> </a>';
         coordonnes = feature.getGeometry().getCoordinates();
       }, {hitTolerance: 1});
       if (markup) {

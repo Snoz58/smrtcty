@@ -50,8 +50,8 @@
     <div id="popup" class="ol-popup">
       <a href="#" id="popup-closer" class="ol-popup-closer"></a>
       <div id="popup-content"></div>
-    </div>
-
+    </div>    
+    
     <!-- Carte à afficher sur la page -->
     <script src="contenu/js/carte.js"></script>
 

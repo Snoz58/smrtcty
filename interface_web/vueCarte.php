@@ -9,6 +9,14 @@
   <div id="popup-content"></div>
 </div>
 
+<?php
+    $CoordVillage = getCoordonee();
+?>
+    <script>
+    var latVille = <?= $CoordVillage["latitude"]?>;
+    var longVille = <?= $CoordVillage["longitude"]?>;
+    </script>
+
 <!-- Carte à afficher sur la page -->
 <script src="contenu/js/carte.js"></script>
 

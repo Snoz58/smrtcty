@@ -46,7 +46,7 @@ $data = Initialisé vide, abscisse du graphique (données de la base)
     foreach ($values as $variable) {
       // Conversion et stockage de l'horodatage pour l'abscisse du graphe
       $labels .= "'".convertdate($variable["Date"])."',";
-      // Récuopération des valeurs des capteurs
+      // Récupération des valeurs des capteurs
       $data .= $variable["Value"].",";
 
       if ($variable["Value"] < $smallesData)
@@ -55,7 +55,7 @@ $data = Initialisé vide, abscisse du graphique (données de la base)
         $biggestData = $variable["Value"];
     }
 
-    // Les variables $label et $data contiennent deux chaînes de caractère formatées avec une virgune entre chaque donnée
+    // Les variables $label et $data contiennent deux chaînes de caractère formatées avec une virgule entre chaque donnée
     // On enlève la dernière virgule de la chaîne
     $labels = substr($labels, 0, -1);
     $data = substr($data, 0, -1);
