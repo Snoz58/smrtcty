@@ -13,7 +13,8 @@ ini_set('display_errors', 1);
       $password = PASSWORD;
       $host = HOST;
       $db = DB;
-      $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
+      $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password,
+      array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8"));
       return $connection;
   }
 
