@@ -42,9 +42,9 @@ ini_set('display_errors', 1);
 
   function getCoordonee(){
     $bdd = getConnection();
-    $CoordVillage = $bdd->query("SELECT ville.latitude,ville.longitude FROM Ville");
+    $CoordVillage = $bdd->query("SELECT latitude, longitude FROM Ville");
     return $CoordVillage->fetch();
-  } 
+  }
   /*--------------------------------------------------------*/
   /*                          Node                          */
   /*--------------------------------------------------------*/
