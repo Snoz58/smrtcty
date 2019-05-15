@@ -78,12 +78,22 @@ html, body, .map{
   color: #fff;
 }
 
-.lienPopUp:hover{
-  color: green;
-  text-decoration: overline;
-  text-decoration: none;
+.lienPopUp {
+  color: #4A4A4F;
+  text-align: center;
 }
 
+.lienPopUp:hover {
+  color: #000;
+}
+
+.lienPopUp span{
+  font-size: 0.8em;
+}
+
+#popup-content a:hover {
+  text-decoration : none;
+}
 
 /* Croix pour fermer */
 /*
