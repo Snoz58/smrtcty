@@ -19,7 +19,7 @@ function compare() {
 }
 
 function TEST() {
-  require 'vueDataOld.php';
+ require 'vueDataOld.php';
 }
 
 // Affiche les détails sur un billet

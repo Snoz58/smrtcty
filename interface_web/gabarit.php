@@ -40,15 +40,9 @@
             <a class="nav-link" href="index.php?action=carte">Carte</a>
           </li>
           <li class="nav-item <?php echo ($titre=="Capteurs" ? 'active' : ''); ?>" >
-            <a class="nav-link" href="index.php?action=TEST">TEST</a>
-          </li>
-          <li class="nav-item <?php echo ($titre=="Capteurs" ? 'active' : ''); ?>" >
             <a class="nav-link" href="index.php?action=data">Données</a>
           </li>
-          <li class="nav-item <?php echo ($titre=="Capteurs" ? 'active' : ''); ?>" >
-            <a class="nav-link" href="index.php?action=compare">Comparaison de résultats</a>
-          </li>
-        </ul>
+          </ul>
       </div>
     </nav>
 

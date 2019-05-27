@@ -18,9 +18,9 @@ try {
     }
     else if ($_GET['action'] == 'TEST') {
       TEST();
-    }
+  }
     else
-      // Cas par défaut --> Accueil
+       //Cas par défaut --> Accueil
       accueil();
   }
   else {
