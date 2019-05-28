@@ -98,6 +98,9 @@ ini_set('display_errors', 1);
     return $sensorType->fetch()[0];
   }
 
+  /*--------------------------------------------------------*/
+  /*                         Données                        */
+  /*--------------------------------------------------------*/
 
   function getSensorValues1($sensor, $debut="2000-01-01", $fin="now()"){
     $bdd = getConnection();
@@ -152,8 +155,26 @@ ini_set('display_errors', 1);
     return $values;
   }
 
+  function getDataIdLastDays(){
+    $bdd = getConnection();
+    $idLastDays = $bdd->query("SELECT Sensor.Id, Nom, Unite
+                               FROM Data
+                               INNER JOIN Sensor on Data.fk_IdSensor = Sensor.Id
+                               INNER JOIN Units on Sensor.fk_IdUnits = Units.Id
+                               WHERE Date > CURRENT_DATE - INTERVAL 7 DAY
+                               GROUP BY fk_IdSensor");
+    return $idLastDays;
+  }
 
-
+  function getDataLastDays($id){
+    $bdd = getConnection();
+    $dataLastDays = $bdd->query("SELECT Date, Value
+                               FROM Data
+                               WHERE Date BETWEEN CURRENT_DATE - INTERVAL 7 DAY AND CURRENT_DATE AND
+                               fk_IdSensor = ".$id."
+                               ORDER BY Date");
+    return $dataLastDays;
+  }
   /*--------------------------------------------------------*/
   /*                          Units                         */
   /*--------------------------------------------------------*/
