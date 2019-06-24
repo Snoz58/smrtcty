@@ -36,7 +36,7 @@ ini_set('display_errors', 1);
 
   function getInfosVillage(){
     $bdd = getConnection();
-    $village = $bdd->query("select * from Ville");
+    $village = $bdd->query("SELECT * FROM ville");
     return $village->fetch();
   }
 
@@ -174,6 +174,16 @@ ini_set('display_errors', 1);
                                fk_IdSensor = ".$id."
                                ORDER BY Date");
     return $dataLastDays;
+  }
+
+  function getLastData($id){
+    $bdd = getConnection();
+    $lastData = $bdd->query("SELECT Value
+                             FROM Data
+                             WHERE fk_IdSensor = ".$id."
+                             ORDER BY Date DESC
+                             LIMIT 1");
+    return $lastData->fetch()[0];
   }
   /*--------------------------------------------------------*/
   /*                          Units                         */
