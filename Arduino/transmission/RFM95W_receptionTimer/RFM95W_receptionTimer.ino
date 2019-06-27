@@ -11,7 +11,7 @@
 
 #define RFM95_CS      4
 #define RFM95_INT     3
-#define RFM95_RST     2
+#define RFM95_RST     5
 #define LED           13  
 
 // Change to 434.0 or other frequency, must match RX's freq!
@@ -35,7 +35,7 @@ void setup()
   }
   delay(100);
 
-  Serial.println("Feather LoRa RX Test!");
+  //Serial.println("Feather LoRa RX Test!");
 
   // manual reset
   digitalWrite(RFM95_RST, LOW);
@@ -44,17 +44,17 @@ void setup()
   delay(10);
 
   while (!rf95.init()) {
-    Serial.println("LoRa radio init failed");
+  //  Serial.println("LoRa radio init failed");
     while (1);
   }
-  Serial.println("LoRa radio init OK!");
+  //Serial.println("LoRa radio init OK!");
 
   // Defaults after init are 434.0MHz, modulation GFSK_Rb250Fd250, +13dbM
   if (!rf95.setFrequency(RF95_FREQ)) {
-    Serial.println("setFrequency failed");
+ //   Serial.println("setFrequency failed");
     while (1);
   }
-  Serial.print("Set Freq to: "); Serial.println(RF95_FREQ);
+  //Serial.print("Set Freq to: "); Serial.println(RF95_FREQ);
 
   // Defaults after init are 434.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
 
@@ -75,14 +75,14 @@ void loop()
     if (rf95.recv(buf, &len))
     {
       digitalWrite(LED, HIGH);
-      Serial.print("Got: ");
+     // Serial.print("Got: ");
       Serial.println((char*)buf);
       
       digitalWrite(LED, LOW);
     }
     else
     {
-      Serial.println("Receive failed");
+      //Serial.println("Receive failed");
     }
   }
 }

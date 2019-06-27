@@ -1,7 +1,7 @@
 <?php
   $infoVillage = getInfosVillage();
   $titre = 'Capteurs';
-  
+
 /**************
 VARIABLES :
 $debut = Date de la première donnée à afficher
@@ -81,9 +81,12 @@ $tabAllData = getAllSensorList()->fetchall();
 
  for ($i = 0; $i < sizeof($tabAllData); $i++){
    $tabAllData[$i]["Value"] = getLastData($tabAllData[$i]["Id"]);
- } 
+ }
 ?>
     <!-- Fin de l'ajout de la valeur au tableau des capteurs -->
+
+
+<main role="main" class="container">
 
 
 <!-- Affichage compteur -->
@@ -92,7 +95,7 @@ $tabAllData = getAllSensorList()->fetchall();
     <div class="container">
         <div class="row">
        <?php for ($i = 0; $i < sizeof($tabAllData); $i++){
-        echo "<div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>
+        echo "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
                 <div class='compteur'>
                     <p class='counter-count'>".$tabAllData[$i]['Value']."</p>
                     <p class='compteur-p'>".$tabAllData[$i]['Label']." en ".$tabAllData[$i]['Symbol']."</p>
@@ -100,7 +103,7 @@ $tabAllData = getAllSensorList()->fetchall();
               </div>";
         }
        ?>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="compteur">
                     <p class="counter-count"><?php echo"${ipm10}" ?></p>
                     <p class="compteur-p">Indice Pm10 <br> AirParif</p>
@@ -108,11 +111,11 @@ $tabAllData = getAllSensorList()->fetchall();
             </div>
         </div>
     </div>
-</div>  
+</div>
 
 <!-- Fin Accueil data -->
 
-<main role="main" class="container">
+
 
   <?php
 
@@ -302,4 +305,4 @@ var myLine = new Chart(document.getElementById("canvas").getContext("2d"),{
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require 'gabarit.php'; ?> 
+<?php require 'gabarit.php'; ?>

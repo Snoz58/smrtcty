@@ -15,7 +15,7 @@
 #define LED           13  
 
 // Change to 434.0 or other frequency, must match RX's freq!
-#define RF95_FREQ 915.0
+#define RF95_FREQ 868.0
 
 // Singleton instance of the radio driver
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
@@ -74,17 +74,17 @@ void loop()
     uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
     uint8_t len = sizeof(buf);
 
-  Serial.print ("test");
+  //Serial.print ("test");
     if (rf95.recv(buf, &len))
     {
    //   Serial.println((char*)buf);
    //   digitalWrite(LED, HIGH);
       // RH_RF95::printBuffer("Received: ", buf, len);
-      Serial.print("Got: ");
-      Serial.println((char*)buf);
+      //Serial.print("Got: ");
+      Serial.print((char*)buf);
    //   Serial.println((char*)buf);
       
-      Serial.println("-_-_-_-_-_-_-_-_-_-_-_-_-");
+     // Serial.println("-_-_-_-_-_-_-_-_-_-_-_-_-");
       
 //      Serial.println((char)buf[0]); 
 //      if((char)buf[0] == '1'){

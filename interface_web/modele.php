@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
   const USERNAME="root";
   const PASSWORD="root";
   const HOST="localhost";
-  const DB="SmartVillagetest";
+  const DB="SmartVillage";
 
   function getConnection(){
       $username = USERNAME;
@@ -36,7 +36,7 @@ ini_set('display_errors', 1);
 
   function getInfosVillage(){
     $bdd = getConnection();
-    $village = $bdd->query("SELECT * FROM ville");
+    $village = $bdd->query("SELECT * FROM Ville");
     return $village->fetch();
   }
 
@@ -185,6 +185,15 @@ ini_set('display_errors', 1);
                              LIMIT 1");
     return $lastData->fetch()[0];
   }
+
+  function getDataCompare($id1, $id2, $debut="2000-01-01", $fin="now()"){
+    $bdd = getConnection();
+    $datasToCompare = "Select *
+                       From Data
+                      Where fk_IdSensor = ".$id1." OR fk_IdSensor = ".$id2." AND Date Between ".$debut." and ".$fin."
+                      Order by Date";
+  }
+  
   /*--------------------------------------------------------*/
   /*                          Units                         */
   /*--------------------------------------------------------*/

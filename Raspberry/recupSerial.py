@@ -9,5 +9,7 @@ while True:
 
         ser_bytes = ser.readline()
 
-        print(ser_bytes)
+       	print(ser_bytes)
+       # recupcenter = ser_bytes.decode("utf-8").split('$')
+        #print(recupcenter[1])
 

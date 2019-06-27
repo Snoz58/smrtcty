@@ -17,7 +17,7 @@ float pm10 = 0;
 
 void setup() {
  Serial.begin(9600);
- pinMode(6,INPUT);
+ pinMode(8,INPUT);
  starttime = millis();//get the current time;
 }
 
