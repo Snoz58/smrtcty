@@ -42,6 +42,9 @@
           <li class="nav-item <?php echo ($titre=="Capteurs" ? 'active' : ''); ?>" >
             <a class="nav-link" href="index.php?action=data">Données</a>
           </li>
+          <li class="nav-item <?php echo ($titre=="Comparer" ? 'active' : ''); ?>" >
+            <a class="nav-link" href="index.php?action=compare">Comparer données</a>
+          </li>
           </ul>
       </div>
     </nav>

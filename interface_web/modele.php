@@ -187,13 +187,67 @@ ini_set('display_errors', 1);
   }
 
   function getDataCompare($id1, $id2, $debut="2000-01-01", $fin="now()"){
+
     $bdd = getConnection();
-    $datasToCompare = "Select *
+
+    $datasToCompare = $bdd->query("Select Date, Value, fk_IdSensor as Sensor
                        From Data
                       Where fk_IdSensor = ".$id1." OR fk_IdSensor = ".$id2." AND Date Between ".$debut." and ".$fin."
-                      Order by Date";
+                      Order by Date LIMIT 60");
+
+    // Création du tableau des données de la forme :
+    //$datacompare[Date du relevé][id Capteur] = Valeur
+    $datacompare = array();
+
+
+
+    foreach ($datasToCompare as $values){
+      // modification de la date pour enlever les secondes et ou minutes si besoin (décalage / latence dans l'insertion des données dans la base)
+      $values["Date"] = date_format(date_create($values["Date"]), 'Y-m-d H:i');
+      // id de l'autre capteur que celui de la boucle courante
+      $otherSensor = ($values["Sensor"] == $id1 ? $id2 : $id1);
+      // Si pas de valeur de l'autre capteur à comparer : NaN (si il y a des données, la valeur sera écrasée plus tard)
+      if (!isset($datacompare[$values["Date"]][$otherSensor])){
+        $datacompare[$values["Date"]][$otherSensor] = "NaN";
+        //echo $values["Date"].' - '.$otherSensor;
+      }
+      $datacompare[$values["Date"]][$values["Sensor"]] = $values["Value"];
+    }
+
+    return $datacompare;
   }
-  
+
+  function dataCompareToDate($dataCompare){
+    // Récupération des dates (clés dans le tableau associatif)
+    $dates = array_keys($dataCompare);
+    // Début du tableau pour Charts.js
+    $strdate = "[";
+    foreach ($dates as $values){
+      $strdate .= "'".$values."',";
+    }
+    // Supression de la dernière virgule
+    $strdate = substr($strdate, 0, -1);
+    // Fermeture du tableau
+    $strdate .= "]";
+    return $strdate;
+  }
+
+  function dataCompareToSensor($dataCompare, $idSensor){
+
+    // Début du tableau pour Charts.js
+    $strsensor = "[";
+    foreach ($dataCompare as $values){
+      // echo $idSensor.' -> '.$values[$idSensor]."<br>";
+      $strsensor .= ($values[$idSensor] == "NaN" ? "," : $values[$idSensor].",");
+
+    }
+    // Supression de la dernière virgule
+    $strsensor = substr($strsensor, 0, -1);
+    // Fermeture du tableau
+    $strsensor .= "]";
+    return $strsensor;
+  }
+
   /*--------------------------------------------------------*/
   /*                          Units                         */
   /*--------------------------------------------------------*/

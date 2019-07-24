@@ -12,7 +12,7 @@
 
 #define RFM95_CS      4
 #define RFM95_INT     3
-#define RFM95_RST     5
+#define RFM95_RST     2
 #define LED           13
 
 // Paramétrage de la fréquence du module LoRa
@@ -76,7 +76,7 @@ void setup()
 
 void loop()
 {
-  delay(30000); // attendre 10 secondes entre chaque envoi
+  delay(10000); // attendre 10 secondes entre chaque envoi
 
   float humidite = dht.readHumidity();
   float temperature1 = dht.readTemperature();

@@ -1,6 +1,7 @@
 <?php
+
   $infoVillage = getInfosVillage();
-  $titre = 'Capteurs';
+  $titre = 'Comparer';
 
 // Réupération de la liste des capteurs :
 $allSensorList = getAllSensorList();
@@ -44,10 +45,18 @@ if ($formOK) {
 
 <?php
 
-dumpVar($dataCapteur1);
-dumpVar($dataCapteur2);
+// dumpVar($dataCapteur1);
+// dumpVar($dataCapteur2);
+$tabDataToCompare = getDataCompare(4,2);
+
+//dumpvar($tabDataToCompare);
+
+$dates =  dataCompareToDate($tabDataToCompare);
+$dataSensor1 = dataCompareToSensor($tabDataToCompare, 4);
+$dataSensor2 = dataCompareToSensor($tabDataToCompare, 2);
 
  ?>
+
   <div class="row">
     <div class="col">
       <form method="POST" action="index.php?action=compare">
@@ -88,6 +97,56 @@ dumpVar($dataCapteur2);
   <div class="chart-container">
       <canvas id="canvas"></canvas>
   </div>
+<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+<script>
+var ctx = document.getElementById('canvas').getContext('2d');
+
+var utils = Samples.utils;
+var presets = window.chartColors;
+
+var lineChartData = {
+			labels : <?= $dates ?>,
+			datasets : [
+				{
+          label : "Donnée 1",
+
+          fill: "bottom",
+          backgroundColor: utils.transparentize(presets.blue), // couleur des points de la courbe
+          borderColor: "#17a2b8", // couleur de la courbe
+					pointStrokeColor : "#F00",
+					data : <?= $dataSensor1 ?>,
+					bezierCurve : false
+				},
+        {
+          label : "Donnée 2",
+
+          fill: "bottom",
+          backgroundColor: utils.transparentize(presets.green), // couleur des points de la courbe
+          borderColor: "#3ecf84", // couleur de la courbe
+          pointStrokeColor : "#F00",
+          data : <?= $dataSensor2 ?>,
+          bezierCurve : false
+        }
+			]
+
+		}
+
+    var options = {
+      responsive: true,
+      maintainaspectratio: true,
+      chartArea: {
+          backgroundColor: 'rgba(251, 85, 85, 0.4)'
+      }
+
+    };
+
+    var myLine = new Chart(document.getElementById("canvas").getContext("2d"),{
+    	data:lineChartData,
+      type:"line",
+      options:options
+    });
+
+</script>
 
 </main>
 

@@ -25,7 +25,7 @@ while True:
 
 	#print(ser_bytes)
 	#Forme de la chaine : $idNode,idCapteur1=valeurCapteur1,idCapteur2=valeurCapteur2,idCapteur3=valeurCapteur3$
-	#Exemple : $1,1=21,2=12,3=67$ (node 1, capteur 1 = 21, capteur 2 = 12, capteur 3 = 67
+	#Exemple : $1,1=21,2=12,3=67$ (node 1, capteur 1 = 21, capteur 2 = 12, capteur 3 = 67)
 	
 	#Récupértion de la partie données uniquement (supression des caractères de début et de fin de la chaine)
 	recupcenter = ser_bytes.decode("utf-8").split('$')
