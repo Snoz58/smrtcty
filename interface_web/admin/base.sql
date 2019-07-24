@@ -76,6 +76,44 @@ CREATE TABLE `Accueil` (
   `Contenu` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+DROP TABLE IF EXISTS `Proprietaire`;
+CREATE TABLE `Proprietaire` (
+`Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Prenom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Statut` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Adresse` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Code postal` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Ville` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `Hebergeur`;
+CREATE TABLE `Hebergeur` (
+`Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Adresse` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Code postal` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Ville` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `Responsable`;
+CREATE TABLE `Responsable` (
+`Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Prenom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Contact` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `Webmaster`;
+CREATE TABLE `Webmaster` (
+`Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Prenom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`Contact` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `Createur`;
+CREATE TABLE `Createur` (
+`Nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+`URL` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 INSERT INTO `Units` (`Id`, `Label`, `Unite`, `Symbol`) VALUES
 (1,	'Temperature',	'Degrés Celcius',	'°C'),
 (2,	'Pression',	'Hectopascal',	'Hpa'),

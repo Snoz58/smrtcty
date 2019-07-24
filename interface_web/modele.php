@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
   const USERNAME="root";
   const PASSWORD="root";
   const HOST="localhost";
-  const DB="SmartVillage";
+  const DB="SmartVillagetest";
 
   function getConnection(){
       $username = USERNAME;
@@ -36,7 +36,7 @@ ini_set('display_errors', 1);
 
   function getInfosVillage(){
     $bdd = getConnection();
-    $village = $bdd->query("SELECT * FROM Ville");
+    $village = $bdd->query("SELECT * FROM ville");
     return $village->fetch();
   }
 
@@ -185,15 +185,6 @@ ini_set('display_errors', 1);
                              LIMIT 1");
     return $lastData->fetch()[0];
   }
-
-  function getDataCompare($id1, $id2, $debut="2000-01-01", $fin="now()"){
-    $bdd = getConnection();
-    $datasToCompare = "Select *
-                       From Data
-                      Where fk_IdSensor = ".$id1." OR fk_IdSensor = ".$id2." AND Date Between ".$debut." and ".$fin."
-                      Order by Date";
-  }
-  
   /*--------------------------------------------------------*/
   /*                          Units                         */
   /*--------------------------------------------------------*/
@@ -209,6 +200,68 @@ ini_set('display_errors', 1);
     $unit = $bdd->query("SELECT Symbol FROM Units WHERE Id = ( SELECT fk_IdUnits FROM Sensor Where Id = $idSensor)");
     return $unit->fetch()[0];
   }
+
+  /*--------------------------------------------------------*/
+  /*                  Mentions Légales                      */
+  /*--------------------------------------------------------*/
+            /*--------------------------------------------------------*/
+            /*              Proprietaire du site                      */
+            /*--------------------------------------------------------*/
+
+  // Récupération de la table Proprietaire
+  function getInfosProprietaire(){
+    $bdd = getConnection();
+    $Proprietaire = $bdd->query("select * from Proprietaire");
+    return $Proprietaire->fetch();
+  }
+
+            /*--------------------------------------------------------*/
+            /*              Hébergeur du site                      */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Hebergeur
+    function getInfosHebergeur(){
+      $bdd = getConnection();
+      $Hebergeur = $bdd->query("select * from Hebergeur");
+      return $Hebergeur->fetch();
+    }
+  
+            /*--------------------------------------------------------*/
+            /*            Responsable de Publication                  */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Responsable
+    function getInfosResponsable(){
+      $bdd = getConnection();
+      $Responsable = $bdd->query("select * from Responsable");
+      return $Responsable->fetch();
+    }
+
+            /*--------------------------------------------------------*/
+            /*            Responsable de Publication                  */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Webmaster
+    function getInfosWebmaster(){
+      $bdd = getConnection();
+      $Webmaster = $bdd->query("select * from Webmaster");
+      return $Webmaster->fetch();
+    }
+
+            /*--------------------------------------------------------*/
+            /*                  Createur du site                      */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Createur
+    function getInfosCreateur(){
+      $bdd = getConnection();
+      $Createur = $bdd->query("select * from Createur");
+      return $Createur->fetch();
+    }
 
   /*--------------------------------------------------------*/
   /*                         Autres                         */
