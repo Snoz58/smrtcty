@@ -137,7 +137,6 @@ ini_set('display_errors', 1);
   // Mise à jour de la table Ville
   function updateInfosVillage($nom, $rue, $cp, $mail, $telephone, $lat, $long){
     $bdd = getConnection();
-
     if ($bdd->exec('UPDATE Ville SET Nom = "'.$nom.'",
                                      Adresse = "'.$rue.'",
                                      Code_postal = "'.$cp.'",
@@ -314,5 +313,207 @@ ini_set('display_errors', 1);
     else
       return false;
   }
+
+
+
+  /*--------------------------------------------------------*/
+  /*                  Mentions Légales                      */
+  /*--------------------------------------------------------*/
+            /*--------------------------------------------------------*/
+            /*              Proprietaire du site                      */
+            /*--------------------------------------------------------*/
+
+  // Récupération de la table Proprietaire
+  function getInfosProprietaire(){
+    $bdd = getConnection();
+    $Proprietaire = $bdd->query("select * from Proprietaire");
+    return $Proprietaire->fetch();
+  }
+
+  // Initialisation de la table Proprietaire avec le contenu
+  function setInfosProprietaire($nom, $prenom, $statut, $adresse, $cp, $ville){
+    $bdd = getConnection();
+    if ($bdd->exec('INSERT INTO Proprietaire SET Nom = "'.$nom.'",
+                                                 Prenom = "'.$prenom.'",
+                                                 Statut = "'.$statut.'",
+                                                 Adresse = "'.$adresse.'",
+                                                 `Code postal` = "'.$cp.'",
+                                                 Ville = "'.$ville.'";')){
+      return true;
+
+    }
+    else
+      return false;
+  }
+
+  // Mise à jour de la table Proprietaire
+  function updateInfosProprietaire($nom, $prenom, $statut, $adresse, $cp, $ville){
+    $bdd = getConnection();
+
+    if ($bdd->exec('UPDATE Proprietaire SET Nom = "'.$nom.'",
+                                                 Prenom = "'.$prenom.'",
+                                                 Statut = "'.$statut.'",
+                                                 Adresse = "'.$adresse.'",
+                                                 `Code postal` = "'.$cp.'",
+                                                 Ville = "'.$ville.'";')){
+      return true;
+
+    }
+    else
+      return false;
+  }
+
+  
+            /*--------------------------------------------------------*/
+            /*              Hébergeur du site                      */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Hebergeur
+    function getInfosHebergeur(){
+      $bdd = getConnection();
+      $Hebergeur = $bdd->query("select * from Hebergeur");
+      return $Hebergeur->fetch();
+    }
+  
+    // Initialisation de la table Hebergeur avec le contenu
+    function setInfosHebergeur($nom, $adresse, $cp, $ville){
+      $bdd = getConnection();
+      if ($bdd->exec('INSERT INTO Hebergeur SET `Nom` = "'.$nom.'",
+                                                `Adresse` = "'.$adresse.'",
+                                                `Code postal` = "'.$cp.'",
+                                                `Ville` = "'.$ville.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+  
+    // Mise à jour de la table Hebergeur
+    function updateInfosHebergeur($nom, $adresse, $cp, $ville){
+      $bdd = getConnection();
+
+      if ($bdd->exec('UPDATE Hebergeur SET `Nom` = "'.$nom.'",
+                                           `Adresse` = "'.$adresse.'",
+                                           `Code postal` = "'.$cp.'",
+                                           `Ville` = "'.$ville.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+  
+            /*--------------------------------------------------------*/
+            /*            Responsable de Publication                  */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Responsable
+    function getInfosResponsable(){
+      $bdd = getConnection();
+      $Responsable = $bdd->query("select * from Responsable");
+      return $Responsable->fetch();
+    }
+  
+    // Initialisation de la table Responsable avec le contenu
+    function setInfosResponsable($nom, $prenom, $contact){
+      $bdd = getConnection();
+      if ($bdd->exec('INSERT INTO Responsable SET `Nom` = "'.$nom.'",
+                                                  `Prenom` = "'.$prenom.'",
+                                                  `Contact` = "'.$contact.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+  
+    // Mise à jour de la table Responsable
+    function updateInfosResponsable($nom, $prenom, $contact){
+      $bdd = getConnection();
+      if ($bdd->exec('UPDATE Responsable SET `Nom` = "'.$nom.'",
+                                             `Prenom` = "'.$prenom.'",
+                                             `Contact` = "'.$contact.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+            /*--------------------------------------------------------*/
+            /*              Webmaster du site                      */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Webmaster
+    function getInfosWebmaster(){
+      $bdd = getConnection();
+      $Webmaster = $bdd->query("select * from Webmaster");
+      return $Webmaster->fetch();
+    }
+  
+    // Initialisation de la table Webmaster avec le contenu
+    function setInfosWebmaster($nom, $prenom, $contact){
+      $bdd = getConnection();
+      if ($bdd->exec('INSERT INTO Webmaster SET `Nom` = "'.$nom.'",
+                                                `Prenom` = "'.$prenom.'",
+                                                `Contact` = "'.$contact.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+  
+    // Mise à jour de la table Webmaster
+    function updateInfosWebmaster($nom, $prenom, $contact){
+      $bdd = getConnection();
+      if ($bdd->exec('UPDATE Webmaster SET `Nom` = "'.$nom.'",
+                                            `Prenom` = "'.$prenom.'",
+                                            `Contact` = "'.$contact.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+
+            /*--------------------------------------------------------*/
+            /*                 Créateur du site                       */
+            /*--------------------------------------------------------*/
+
+
+    // Récupération de la table Createur
+    function getInfosCreateur(){
+      $bdd = getConnection();
+      $Createur = $bdd->query("select * from Createur");
+      return $Createur->fetch();
+    }
+  
+    // Initialisation de la table Createur avec le contenu
+    function setInfosCreateur($nom, $URL){
+      $bdd = getConnection();
+      if ($bdd->exec('INSERT INTO Createur SET `Nom` = "'.$nom.'",
+                                               `URL` = "'.$URL.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
+  
+    // Mise à jour de la table Createur
+    function updateInfosCreateur($nom, $URL){
+      $bdd = getConnection();
+      if ($bdd->exec('UPDATE Createur SET `Nom` = "'.$nom.'",
+                                          `URL` = "'.$URL.'";')){
+        return true;
+  
+      }
+      else
+        return false;
+    }
 
 ?>

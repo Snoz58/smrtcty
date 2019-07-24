@@ -17,11 +17,14 @@ try {
       accueil();
     }
     else if ($_GET['action'] == 'TEST') {
-      TEST();
-  }
+      TEST();  
+     }
+    else if ($_GET['action'] == 'mentionslegales') {
+      mentionsLegales();  
+    }
     else
        //Cas par défaut --> Accueil
-      accueil();
+      erreur('');
   }
   else {
     accueil();  // action par défaut

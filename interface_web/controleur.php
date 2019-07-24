@@ -22,6 +22,11 @@ function TEST() {
  require 'vueDataOld.php';
 }
 
+function mentionsLegales(){
+  //require 'vueMentionsLegales.php';
+  require 'mentionslegales.php';
+}
+
 // Affiche les détails sur un billet
 function billet($idBillet) {
   $billet = getBillet($idBillet);
