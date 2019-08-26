@@ -2,7 +2,7 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
-#define DHTPIN            A1 
+#define DHTPIN            A2 
 #define DHTTYPE           DHT22
 
 

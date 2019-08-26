@@ -8,7 +8,7 @@ void loop()
   float sensorVoltage; 
   float sensorValue;
  
-  sensorValue = analogRead(A0);
+  sensorValue = analogRead(A1);
   sensorVoltage = sensorValue/1024*3.3;
   Serial.print("sensor reading = ");
   Serial.print(sensorValue);
